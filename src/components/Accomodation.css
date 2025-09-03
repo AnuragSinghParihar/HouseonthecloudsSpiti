@@ -119,6 +119,7 @@ html, body {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  top:200px;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;

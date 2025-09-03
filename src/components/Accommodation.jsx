@@ -124,11 +124,11 @@ const Accomodation = () => {
         </div>
       </section>
 
-      <section className="common-area-section">
+      <section className="common-area-section"><br/><br/>
         <div className="common-area-header">
           <h2 className="common-area-title">Common Areas</h2>
           <p className="common-area-subtitle">Spaces designed for connection and relaxation</p>
-        </div>
+        </div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         
         <div className="common-area-images">
           <div className="common-area-image-container">
@@ -155,7 +155,7 @@ const Accomodation = () => {
             />
           </div>
         </div>
-      </section>
+      </section><br/><br/>
 
       <section className="hotel-info-section">
         <div className="hotel-info-header">
