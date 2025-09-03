@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+/* Footer Styles to match the design */
+.footer-container {
+  background: #4a1818;
+  color: #F5F5DC;
+  padding: 4rem 0 2rem 0;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Logo Header Section */
+.logo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.logo-center {
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+  border-radius: 8px;
+  padding: 8px;
+  background: rgba(245, 245, 220, 0.1);
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #F5F5DC;
+  margin: 1rem 0 0.5rem 0;
+  letter-spacing: 1px;
+}
+
+.location {
+  font-size: 1.2rem;
+  color: #B61F1F;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #F5F5DC;
+  margin: 0.5rem 0 1.5rem 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.footer-underline {
+  width: 120px;
+  height: 2px;
+  background: #B61F1F;
+  margin: 0 auto;
+  border-radius: 1px;
+}
+
+/* Divider */
+.footer-divider {
+  height: 1px;
+  background: rgba(245, 245, 220, 0.3);
+  margin: 2rem 0;
+  width: 100%;
+}
+
+/* Main Content Section */
+.main-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Left Column - Contact Information */
+.left {
+  text-align: left;
+}
+
+.left p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #F5F5DC;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.left strong {
+  color: #F5F5DC;
+  font-weight: 600;
+}
+
+/* Center Column - Empty for spacing */
+.center {
+  display: none;
+}
+
+/* Right Column - Navigation Links */
+.right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  color: #F5F5DC;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.footer-link:hover {
+  color: #B61F1F;
+}
+
+/* Instagram Section */
+.instagram-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245, 245, 220, 0.2);
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  background: #B61F1F;
+  border: 1px solid #F5F5DC;
+  justify-content: center;
+}
+
+.instagram-link:hover {
+  background: #8B0000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(182, 31, 31, 0.3);
+}
+
+.instagram-link svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.instagram-link:hover svg {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-container {
+    padding: 3rem 0 1.5rem 0;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 2.5rem 0 1rem 0;
+  }
+  
+  .logo-header {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .logo {
+    height: 60px;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .location {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+  }
+  
+  .main-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  
+  .left {
+    text-align: center;
+  }
+  
+  .right {
+    text-align: center;
+    align-items: center;
+  }
+  
+  .footer-link {
+    font-size: 0.9rem;
+  }
+  
+  .instagram-link {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 2rem 0 1rem 0;
+  }
+  
+  .logo-header {
+    margin-bottom: 1.5rem;
+    padding: 0 0.8rem;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .main-title {
+    font-size: 2rem;
+  }
+  
+  .location {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+  }
+  
+  .main-section {
+    gap: 1.5rem;
+    padding: 0 0.8rem;
+  }
+  
+  .left p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .footer-link {
+    font-size: 0.85rem;
+  }
+  
+  .instagram-link {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .footer-underline {
+    width: 100px;
+    height: 2px;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer-container {
+    padding: 1.5rem 0 1rem 0;
+  }
+  
+  .logo {
+    height: 45px;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
+  }
+  
+  .location {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .tagline {
+    font-size: 0.8rem;
+  }
+  
+  .left p {
+    font-size: 0.8rem;
+  }
+  
+  .footer-link {
+    font-size: 0.8rem;
+  }
+  
+  .instagram-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .footer-link:hover,
+  .instagram-link:hover {
+    transform: none;
+  }
+  
+  .footer-link:active,
+  .instagram-link:active {
+    transform: scale(0.95);
+  }
+  
+  .logo:hover {
+    transform: none;
+  }
+  
+  .logo:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .footer-link,
+  .instagram-link,
+  .instagram-link svg {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .footer-container {
+    background: white;
+    color: black;
+  }
+  
+  .main-title {
+    color: black;
+  }
+  
+  .location {
+    color: #B61F1F;
+  }
+  
+  .instagram-link {
+    color: #B61F1F;
+    background: none;
+    border: 1px solid #B61F1F;
+  }
+}
+  
