@@ -302,7 +302,7 @@ const Gallery = () => {
                       </div>
                       <div className="culture-image">
                         <img
-                          src="/images/IMG_0025 3.JPG"
+                          src="/images/gallery-culture-1.JPG"
                           alt="Ancient Monastery in the Himalayas"
                           className="section-image"
                         />
@@ -324,7 +324,7 @@ const Gallery = () => {
                       </div>
                       <div className="culture-image">
                         <img
-                          src="/images/la-dar.jpeg"
+                          src="/images/gallery-culture-2.jpeg"
                           alt="Traditional Festival Dance"
                           className="section-image"
                         />
@@ -347,7 +347,7 @@ const Gallery = () => {
                       </div>
                       <div className="culture-image">
                         <img
-                          src="/images/kibber.jpg"
+                          src="/images/gallery-culture-3.jpg"
                           alt="Traditional Village in Spiti Valley"
                           className="section-image"
                         />
@@ -370,7 +370,7 @@ const Gallery = () => {
                       </div>
                       <div className="culture-image">
                         <img
-                          src="/images/68896f836e920.image-copy.jpg"
+                          src="/images/gallery-culture-4.jpg"
                           alt="Yak Herding in Alpine Meadows"
                           className="section-image"
                           onError={(e) => {
@@ -396,7 +396,7 @@ const Gallery = () => {
                       </div>
                       <div className="culture-image">
                         <img
-                          src="/images/hikkim.jpg"
+                          src="/images/gallery-culture-5.jpg"
                           alt="World's Highest Post Office in Hikkim"
                           className="section-image"
                         />
