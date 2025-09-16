@@ -27,11 +27,11 @@ const Gallery = () => {
 
   // Wildlife images - using available images
   const wildlifeImages = [
-    "/images/IMG_0022 2.JPG",
-    "/images/IMG_0024 2.JPG",
-    "/images/IMG_0029 2.JPG",
-    "/images/IMG_0212 2.JPG",
-    "/images/IMG_0017 2.JPG",
+    "/images/gallery-animal-1.JPG",
+    "/images/gallery-animal-2.JPG",
+    "/images/gallery-animal-3.JPG",
+    "/images/gallery-animal-4.JPG",
+    "/images/gallery-animal-5.JPG",
   ];
 
   // River images
