@@ -36,17 +36,17 @@ const Gallery = () => {
 
   // River images
   const riverImages = [
-    "/images/IMG_0001 3.JPG",
-    "/images/IMG_0002 3.JPG",
-    "/images/IMG_0010 3.JPG",
-    "/images/IMG_0023 3.JPG",
-    "/images/IMG_0025 3.JPG",
-    "/images/IMG_0027 3.JPG",
-    "/images/IMG_0028 3.JPG",
-    "/images/IMG_0214 3.JPG",
-    "/images/IMG_0218 3.jpg",
-    "/images/IMG_0219 3.jpg",
-    "/images/IMG_5192 2.JPG",
+    "/images/gallery-scape-1.JPG",
+    "/images/gallery-scape-2.JPG",
+    "/images/gallery-scape-3.JPG",
+    "/images/gallery-scape-4.JPG",
+    "/images/gallery-culture-1.JPG",
+    "/images/gallery-scape-5.JPG",
+    "/images/gallery-scape-6.JPG",
+    "/images/landing-place-key-monastery.JPG",
+    "/images/landing-place-chicham-bridge.jpg",
+    "/images/gallery-scape-7.jpg",
+    "/images/gallery-scape-8.JPG",
   ];
 
   const getImagesForSection = () => {
