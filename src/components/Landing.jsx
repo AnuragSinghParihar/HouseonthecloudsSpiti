@@ -102,7 +102,7 @@ const Landing = () => {
           onCanPlay={() => console.log('Video can play')}
           onPlay={() => console.log('Video started playing')}
         >
-          <source src="/videos/back.mp4" type="video/mp4" />
+          <source src="/videos/landing-hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
@@ -129,7 +129,7 @@ const Landing = () => {
             loop
             playsInline
             >
-            <source src="/videos/hotelvideo (1).mp4" type="video/mp4" />
+            <source src="/videos/landing-hotel.mp4" type="video/mp4" />
             Your browser does not support the video tag.
             </video>
         </div> 
@@ -138,7 +138,7 @@ const Landing = () => {
       <section className='experience-section'>
       <div className="fullscreen-image-container">
           <img 
-            src="/images/DSC05502-HDR.jpg" 
+            src="/images/landing-experience-1.jpg" 
             alt="House on the Clouds is not a hotel — it is an experience" 
             className="fullscreen-image"
           />
@@ -153,7 +153,7 @@ const Landing = () => {
       <section className='room-section'>
         <div className="fullscreen-image-container">
           <img 
-            src="/images/DSC04783-HDR.jpg" 
+            src="/images/landing-room-1.jpg" 
             alt="Each room is thoughtfully designed inspired by local Spiti architecture" 
             className="fullscreen-image"
           />
@@ -174,7 +174,7 @@ const Landing = () => {
       <section className='local-welcome-section'>
         <div className="fullscreen-image-container">
           <img 
-            src="/images/IMG_9449.JPG" 
+            src="/images/landing-local-welcome-1.jpg" 
             alt="Local Welcome - Himachali traditions and hospitality" 
             className="fullscreen-image"
           />
@@ -191,7 +191,7 @@ const Landing = () => {
         <div className="bonfire-container">
           <div className="bonfire-image">
             <img 
-              src="/images/DSC05979.jpg" 
+              src="/images/landing-bonfire-1.jpg" 
               alt="Bonfire under the stars" 
               className="bonfire-img"
             />
@@ -211,7 +211,7 @@ const Landing = () => {
           </div>
           <div className="outdoor-breakfast-image">
             <img 
-              src="/images/DSC05437.jpg" 
+              src="/images/landing-outdoor-breakfast-1.jpg" 
               alt="Outdoor breakfast in the mountains" 
               className="outdoor-breakfast-img"
             />
@@ -223,7 +223,7 @@ const Landing = () => {
         <div className="bonfire-container">
           <div className="bonfire-image">
             <img 
-              src="/images/DSC05164.jpg" 
+              src="/images/landing-river-breakfast-1.jpg" 
               alt="Bonfire under the stars" 
               className="bonfire-img"
             />
@@ -651,7 +651,7 @@ const Landing = () => {
         <div className="common-area-images">
           <div className="common-area-image-container">
             <img 
-              src="/images/DSC05959-HDR_1.jpg" 
+              src="/images/landing-common-1.jpg" 
               alt="Cozy Lounge Area" 
               className="common-area-image"
             />
@@ -659,7 +659,7 @@ const Landing = () => {
           
           <div className="common-area-image-container">
             <img 
-              src="/images/DSC05944-HDR.jpg" 
+              src="/images/landing-common-2.jpg" 
               alt="Living Room with Mountain Views" 
               className="common-area-image"
             />
@@ -667,7 +667,7 @@ const Landing = () => {
           
           <div className="common-area-image-container">
             <img 
-              src="/images/DSC04010.jpg" 
+              src="/images/landing-common-3.jpg" 
               alt="Warm Common Area" 
               className="common-area-image"
             />

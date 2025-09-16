@@ -40,7 +40,7 @@ const Accomodation = () => {
         </div>
         <div className="additional-room-image-container">
           <img 
-            src="/images/DSC03941-HDR.jpg" 
+            src="/images/accommodation-room-1.jpg" 
             alt="Room with Mountain View" 
             className="additional-room-image"
           />
@@ -49,7 +49,7 @@ const Accomodation = () => {
       <section className="third-image-section">
         <div className="third-image-container">
           <img 
-            src="/images/DSC05934-HDR.jpg" 
+            src="/images/accommodation-room-2.jpg" 
             alt="Bedroom with Mountain Views" 
             className="third-room-image"
           />
@@ -58,7 +58,7 @@ const Accomodation = () => {
       <section className="fourth-image-section">
         <div className="fourth-image-container">
           <img 
-            src="/images/DSC05939-HDR.jpg" 
+            src="/images/accommodation-room-3.jpg" 
             alt="Bedroom with Accent Wall" 
             className="fourth-room-image"
           />
@@ -77,7 +77,7 @@ const Accomodation = () => {
         </div>
         <div className="fifth-image-container">
           <img 
-            src="/images/4e11b3c0-a26a-4894-92e2-e821e57235f0-copy.JPG" 
+            src="/images/accommodation-bathroom-1.jpg" 
             alt="Bathroom with Mountain View" 
             className="fifth-room-image"
           />
@@ -86,7 +86,7 @@ const Accomodation = () => {
       <section className="features-section">
         <div className="features-left-image">
           <img 
-            src="/images/IMG_9387 2.JPG" 
+            src="/images/accommodation-feature-left.jpg" 
             alt="Bedroom with Mountain Views" 
             className="features-image"
           />
@@ -107,7 +107,7 @@ const Accomodation = () => {
         
         <div className="features-right-image">
           <img 
-            src="/images/IMG_0452 2.jpg" 
+            src="/images/accommodation-feature-right.jpg" 
             alt="Ornate Copper Teapot" 
             className="features-image"
           />
@@ -117,7 +117,7 @@ const Accomodation = () => {
       <section className="fullscreen-building-section">
         <div className="fullscreen-building-container">
           <img 
-            src="/images/77643edc-cc76-471b-a531-9add469e9b0e 3.jpg" 
+            src="/images/accommodation-building-1.jpg" 
             alt="House on the Clouds - Traditional Building" 
             className="fullscreen-building-image"
           />
@@ -133,7 +133,7 @@ const Accomodation = () => {
         <div className="common-area-images">
           <div className="common-area-image-container">
             <img 
-              src="/images/IMG_9385.JPG" 
+              src="/images/accommodation-common-1.jpg" 
               alt="Cozy Lounge Area" 
               className="common-area-image"
             />
@@ -141,7 +141,7 @@ const Accomodation = () => {
           
           <div className="common-area-image-container">
             <img 
-              src="/images/IMG_1693.JPG" 
+              src="/images/accommodation-common-2.jpg" 
               alt="Living Room with Mountain Views" 
               className="common-area-image"
             />
@@ -149,7 +149,7 @@ const Accomodation = () => {
           
           <div className="common-area-image-container">
             <img 
-              src="/images/b14689ac-fcc6-446a-bd67-2d248bbe4210 5.JPG" 
+              src="/images/accommodation-common-3.jpg" 
               alt="Warm Common Area" 
               className="common-area-image"
             />
