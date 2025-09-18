@@ -45,11 +45,11 @@ body {
 }
 
 .writting {
-  text-align: center;
+  text-align:center;
   color: white;
   z-index: 10;
-  max-width: 800px;
-  padding: 0 2rem;
+  max-width: 1200px;
+  padding: 20rem 2rem 0 2rem;
 }
 
 .heading-one {
@@ -80,6 +80,10 @@ body {
 }
 
 /* Second Hero Section */
+.before-hero{
+  text-align: center;
+  margin: 4rem auto;
+}
 .hero {
   position: relative;
   height: 100vh;
@@ -105,7 +109,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(38, 38, 38, 0.215);
   z-index: -1;
 }
 
@@ -113,8 +117,10 @@ body {
   position: relative;
   z-index: 10;
   max-width: 600px;
-  padding: 0 4rem;
+  padding: 4rem;
   color: white;
+  padding: 4em auto;
+  background-color: rgba(31, 30, 30, 0.341);
 }
 
 .heading-one-hero {
@@ -244,7 +250,7 @@ body {
 
 /* Experiences Section */
 .experiences-section {
-  padding: 8rem 0 4rem;
+  padding: 0;
   text-align: center;
   background: #f8f8f8;
 }
@@ -703,7 +709,7 @@ body {
 }
 
 /* Common Area Section */
-.common-area-section {
+/* .common-area-section {
   padding: 8rem 0;
   background: white;
   margin-top: 10rem;
@@ -730,7 +736,7 @@ body {
   font-size: 1.2rem;
   color: #666;
   font-weight: 300;
-}
+} */
 
 /* Common Area Images */
 .landing-common-area-images {

@@ -197,14 +197,16 @@ const Landing = () => {
           <h1 className="heading-three">House on the Clouds</h1>
         </div>
       </div>
+      <section className="before-hero">
+        <h1 className="heading-main-two">
+          One of the World's Highest Boutique Stays
+          <br /> <i>Perched at 13,615 ft in Chicham, Spiti Valley</i>
+        </h1>
+      </section>
 
       <section className="hero">
         <div className="after-hero">
           <h6 className="heading-one-hero">SPITI VALLEY</h6>
-          <h1 className="heading-main-two">
-            One of the World's Highest Boutique Stays
-            <br /> <i>Perched at 13,615 ft in Chicham, Spiti Valley</i>
-          </h1>
           <p className="para-one">
             House on the Clouds offers a rare retreat above the clouds — a
             boutique homestay surrounded by the majesty of the Himalayas and the
@@ -569,69 +571,14 @@ const Landing = () => {
                     placeholder="Enter your phone number"
                   />
                 </div>
-
-                <div className="form-group">
-                  <label htmlFor="subject">Subject *</label>
-                  <select id="subject" name="subject" required>
-                    <option value="">Select a subject</option>
-                    <option value="booking">Booking Inquiry</option>
-                    <option value="availability">Availability Check</option>
-                    <option value="pricing">Pricing Information</option>
-                    <option value="amenities">Amenities & Services</option>
-                    <option value="directions">Directions & Location</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
               </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="checkIn">Check-in Date</label>
-                  <input type="date" id="checkIn" name="checkIn" />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="checkOut">Check-out Date</label>
-                  <input type="date" id="checkOut" name="checkOut" />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="guests">Number of Guests</label>
-                  <select id="guests" name="guests">
-                    <option value="">Select number of guests</option>
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guests</option>
-                    <option value="3">3 Guests</option>
-                    <option value="4">4 Guests</option>
-                    <option value="5+">5+ Guests</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="roomPreference">Room Preference</label>
-                  <select id="roomPreference" name="roomPreference">
-                    <option value="">Select room preference</option>
-                    <option value="dawa">Dawa (Moon)</option>
-                    <option value="sprin">Sprin (Clouds)</option>
-                    <option value="yul">Yul (Village)</option>
-                    <option value="riwo">Riwo (Mountain)</option>
-                    <option value="kha">Kha (Snow)</option>
-                    <option value="namkha">Namkha (Sky)</option>
-                    <option value="kora">Kora (The Circle)</option>
-                    <option value="any">Any Available Room</option>
-                  </select>
-                </div>
-              </div>
-
               <div className="form-group full-width">
                 <label htmlFor="message">Message *</label>
                 <textarea
                   id="message"
                   name="message"
                   required
-                  rows="6"
+                  rows="4"
                   placeholder="Tell us about your requirements, questions, or any special requests..."
                 ></textarea>
               </div>
