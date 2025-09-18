@@ -8,8 +8,12 @@ const Landing = () => {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState({});
 
-  // Add scroll effect for navbar
+  // Refs for intersection observer
+  // const sectionRefs = useRef([]);
+
+  // Enhanced scroll effect for navbar
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -25,6 +29,50 @@ const Landing = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id || entry.target.className;
+          setIsVisible((prev) => ({
+            ...prev,
+            [sectionId]: true,
+          }));
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll(
+      ".experience-section, .bonfire-section, .outdoor-breakfast-section, .explore-section, .hotc-section, .local-welcome-section, .room-section, .background-text-section"
+    );
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
+  // Auto-dismiss success/error messages
+  useEffect(() => {
+    if (submitStatus) {
+      const timer = setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitStatus]);
 
   const Places = [
     {
@@ -52,10 +100,12 @@ const Landing = () => {
 
   const openPopup = (place) => {
     setSelectedPlace(place);
+    document.body.style.overflow = "hidden"; // Prevent background scrolling
   };
 
   const closePopup = () => {
     setSelectedPlace(null);
+    document.body.style.overflow = "unset"; // Restore scrolling
   };
 
   const handleSubmit = async (e) => {
@@ -65,16 +115,34 @@ const Landing = () => {
 
     try {
       const formData = new FormData(e.target);
+
+      // Add timestamp
+      formData.append("timestamp", new Date().toISOString());
+
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         setSubmitStatus("success");
         e.target.reset();
+
+        // Smooth scroll to success message
+        setTimeout(() => {
+          const successElement = document.querySelector(".success-message");
+          if (successElement) {
+            successElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }, 100);
       } else {
         setSubmitStatus("error");
+        console.error("Form submission failed:", result);
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -83,6 +151,18 @@ const Landing = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Handle escape key for popup
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape" && selectedPlace) {
+        closePopup();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [selectedPlace]);
 
   return (
     <>
@@ -128,51 +208,76 @@ const Landing = () => {
           <p className="para-one">
             House on the Clouds offers a rare retreat above the clouds — a
             boutique homestay surrounded by the majesty of the Himalayas and the
-            timeless spirit of Spiti.
+            timeless spirit of Spiti. Experience unparalleled hospitality where
+            every sunrise paints a new masterpiece across endless mountain
+            vistas.
           </p>
         </div>
-        <div className="HOTEL-VIDEO">
-          <video className="bg-video-one" autoPlay muted loop playsInline>
-            <source src="/videos/landing-hotel.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+        <video
+          className="bg-video-one"
+          autoPlay
+          muted
+          loop
+          playsInline
+          onError={(e) => {
+            console.error("Hotel video error:", e.target.error);
+            e.target.style.display = "none";
+          }}
+        >
+          <source src="/videos/landing-hotel.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </section>
 
-      <section className="experience-section">
+      {/* Side-by-side Experience Section */}
+      <section
+        className={`experience-section ${
+          isVisible["experience-section"] ? "animate-in" : ""
+        }`}
+        id="experience-section"
+      >
         <div className="fullscreen-image-container">
           <img
             src="/images/landing-experience-1.jpg"
-            alt="House on the Clouds is not a hotel — it is an experience"
+            alt="House on the Clouds experience"
             className="fullscreen-image"
+            loading="lazy"
           />
-          <div className="image-text-overlay">
-            <div className="text-content">
-              <p className="combined-text">
-                House on the Clouds is not a hotel — it is an experience. Set
-                amidst quiet landscapes, House on the Clouds invites you to
-                pause and reconnect.
-              </p>
-            </div>
+        </div>
+        <div className="image-text-overlay">
+          <div className="text-content">
+            <p className="combined-text">
+              House on the Clouds is not a hotel — it is an experience. Set
+              amidst quiet landscapes, House on the Clouds invites you to pause
+              and reconnect with nature's pristine beauty.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="room-section">
+      {/* Side-by-side Room Section */}
+      <section
+        className={`room-section ${
+          isVisible["room-section"] ? "animate-in" : ""
+        }`}
+        id="room-section"
+      >
+        <div className="image-text-overlay">
+          <div className="text-content">
+            <p className="combined-text">
+              Each room is thoughtfully designed, inspired by local Spiti
+              architecture and crafted to provide comfort while honoring the
+              cultural heritage of this mystical land.
+            </p>
+          </div>
+        </div>
         <div className="fullscreen-image-container">
           <img
             src="/images/landing-room-1.jpg"
-            alt="Each room is thoughtfully designed inspired by local Spiti architecture"
+            alt="Spiti architecture inspired rooms"
             className="fullscreen-image"
+            loading="lazy"
           />
-          <div className="image-text-overlay">
-            <div className="text-content">
-              <p className="combined-text">
-                Each room is thoughtfully designed inspired by local Spiti
-                architecture.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -182,51 +287,65 @@ const Landing = () => {
         </div>
       </section>
 
-      <section className="local-welcome-section">
-        <div className="fullscreen-image-container">
-          <img
-            src="/images/landing-local-welcome-1.jpg"
-            alt="Local Welcome - Himachali traditions and hospitality"
-            className="fullscreen-image"
-          />
-          <div className="image-text-overlay">
-            <div className="text-content-image">
-              <h3 className="local-welcome-title">Local Welcome</h3>
-              <p className="outdoor-breakfast-text">
-                Step into the warmth of Himachali traditions, where heartfelt
-                smiles and genuine hospitality embrace you like family.
-              </p>
-            </div>
-          </div>
+      {/* Background Image Section with Text Overlay */}
+      <section
+        className={`local-welcome-section ${
+          isVisible["local-welcome-section"] ? "animate-in" : ""
+        }`}
+        id="local-welcome-section"
+      >
+        <div className="text-content-image">
+          <h3 className="local-welcome-title">Local Welcome</h3>
+          <p className="outdoor-breakfast-text">
+            Step into the warmth of Himachali traditions, where heartfelt smiles
+            and genuine hospitality embrace you like family, creating memories
+            that last a lifetime.
+          </p>
         </div>
       </section>
 
-      <section className="bonfire-section">
+      {/* Existing Split Sections */}
+      <section
+        className={`bonfire-section ${
+          isVisible["bonfire-section"] ? "animate-in" : ""
+        }`}
+        id="bonfire-section"
+      >
         <div className="bonfire-container">
           <div className="bonfire-image">
             <img
               src="/images/landing-bonfire-1.jpg"
               alt="Bonfire under the stars"
               className="bonfire-img"
+              loading="lazy"
             />
           </div>
           <div className="bonfire-content">
-            <h3 className="bonfire-title">Bonfire</h3>
+            <h3 className="bonfire-title">Bonfire Nights</h3>
             <p className="bonfire-text">
-              Under a blanket of stars, gather by the crackling fire as mountain
-              nights weave stories, laughter, and timeless memories.
+              Under a blanket of stars more brilliant than city lights could
+              ever be, gather by the crackling fire as mountain nights weave
+              stories, laughter, and timeless memories that warm your soul long
+              after the flames fade.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="outdoor-breakfast-section">
+      <section
+        className={`outdoor-breakfast-section ${
+          isVisible["outdoor-breakfast-section"] ? "animate-in" : ""
+        }`}
+        id="outdoor-breakfast-section"
+      >
         <div className="outdoor-breakfast-container">
           <div className="outdoor-breakfast-content">
             <h3 className="outdoor-breakfast-title">Outdoor Breakfast</h3>
             <p className="outdoor-breakfast-text">
-              Awaken to crisp mountain air and golden sunlight, savoring a
-              delightful breakfast amidst nature's open embrace.
+              Awaken to crisp mountain air and golden sunlight painting the
+              peaks, savoring a delightful breakfast amidst nature's open
+              embrace while eagles soar overhead and prayer flags flutter in the
+              gentle breeze.
             </p>
           </div>
           <div className="outdoor-breakfast-image">
@@ -234,92 +353,129 @@ const Landing = () => {
               src="/images/landing-outdoor-breakfast-1.jpg"
               alt="Outdoor breakfast in the mountains"
               className="outdoor-breakfast-img"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
-      <section className="bonfire-section">
+      {/* Another Background Text Section - Add your image */}
+      <section
+        className={`background-text-section ${
+          isVisible["background-text-section"] ? "animate-in" : ""
+        }`}
+        id="background-text-section"
+      >
+        <div className="text-content-image">
+          <h3 className="local-welcome-title">Mountain Meditation</h3>
+          <p className="outdoor-breakfast-text">
+            Find your inner peace surrounded by the ancient wisdom of the
+            mountains. Let the silence of the peaks guide you to moments of
+            profound tranquility and self-discovery.
+          </p>
+        </div>
+      </section>
+
+      <section
+        className={`bonfire-section ${
+          isVisible["river-breakfast-section"] ? "animate-in" : ""
+        }`}
+        id="river-breakfast-section"
+      >
         <div className="bonfire-container">
           <div className="bonfire-image">
             <img
               src="/images/landing-river-breakfast-1.jpg"
-              alt="Bonfire under the stars"
+              alt="River breakfast with mountain views"
               className="bonfire-img"
+              loading="lazy"
             />
           </div>
           <div className="bonfire-content">
             <h3 className="bonfire-title">River Breakfast</h3>
             <p className="bonfire-text">
-              Indulge in a serene mountain breakfast, where rugged landscapes
-              meet endless skies, and every sip is savored with breathtaking
-              views.
+              Indulge in a serene mountain breakfast by the flowing river, where
+              rugged landscapes meet endless skies, and every sip is savored
+              with breathtaking views that remind you of nature's infinite
+              beauty.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="explore-section">
-        <h2 className="explore-title">Get to Know Our Land</h2>
+      <section
+        className={`explore-section ${
+          isVisible["explore-section"] ? "animate-in" : ""
+        }`}
+        id="explore-section"
+      >
+        <h2 className="explore-title">Discover the Mystical Land Around Us</h2>
         <div className="explore-grid">
           {Places.map((place, index) => (
             <div
               key={index}
               className="explore-card"
-              style={{ animationDelay: `${index * 100}ms` }}
+              style={{ animationDelay: `${index * 150}ms` }}
               onClick={() => openPopup(place)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  openPopup(place);
+                }
+              }}
+              aria-label={`Explore ${place.name}`}
             >
               <img
                 src={place.image}
                 alt={place.name}
                 className="explore-thumb"
+                loading="lazy"
               />
-              <div className="hover-overlay">Click to Explore</div>
+              <div className="hover-overlay">
+                <span>Click to Explore</span>
+              </div>
               <div className="place-name">{place.name}</div>
             </div>
           ))}
         </div>
 
         {selectedPlace && (
-          <div className="popup-overlay" onClick={closePopup}>
+          <div
+            className="popup-overlay"
+            onClick={closePopup}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="popup-title"
+          >
             <div className="popup-content" onClick={(e) => e.stopPropagation()}>
               <img
                 src={selectedPlace.image}
                 alt={selectedPlace.name}
                 className="popup-image"
+                loading="lazy"
               />
-              <h3>{selectedPlace.name}</h3>
+              <h3 id="popup-title">{selectedPlace.name}</h3>
               <p>{selectedPlace.description}</p>
-              <button className="close-btn" onClick={closePopup}>
+              <button
+                className="close-btn"
+                onClick={closePopup}
+                aria-label="Close popup"
+              >
                 Close
               </button>
             </div>
           </div>
         )}
       </section>
+
       <section
         id="contact"
-        className="hotc-section"
-        style={{ backgroundColor: "#f8f4f0", padding: "80px 0", margin: "0" }}
+        className={`hotc-section ${
+          isVisible["hotc-section"] ? "animate-in" : ""
+        }`}
       >
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <div className="hero-content">
           <h1 className="hero-title">Get in Touch</h1>
           <p className="hero-subtitle">
@@ -327,67 +483,31 @@ const Landing = () => {
           </p>
         </div>
 
-        <div
-          className="hotc-container"
-          style={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-            width: "100%",
-            height: "auto",
-            minHeight: "auto",
-            padding: "2rem",
-            margin: "0",
-            gap: "3rem",
-            overflow: "visible",
-          }}
-        >
-          <div
-            className="contact-form-container fade-in-left"
-            style={{
-              flex: "0 1 50%",
-              background: "#f8f4f0",
-              padding: "2.5rem",
-              borderRadius: "15px",
-              border: "2px solid #e0e0e0",
-              height: "auto",
-              minHeight: "auto",
-              display: "flex",
-              flexDirection: "column",
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-              boxSizing: "border-box",
-              overflow: "visible",
-            }}
-          >
-            <div
-              className="form-header"
-              style={{
-                textAlign: "center",
-                marginBottom: "2rem",
-                paddingTop: "0",
-                marginTop: "0",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "2.2rem",
-                  fontWeight: "700",
-                  color: "#4a1818",
-                  marginBottom: "0.5rem",
-                  marginTop: "0",
-                  fontFamily: "'Playfair Display', serif",
-                }}
-              >
-                Send us a Query
-              </h2>
-              <p
-                style={{
-                  fontSize: "1rem",
-                  color: "#666",
-                  margin: "0",
-                  fontFamily: "'Poppins', sans-serif",
-                }}
-              >
+        {submitStatus === "success" && (
+          <div className="success-message">
+            <div className="success-icon"></div>
+            <div>
+              <strong>Thank you!</strong> Your message has been sent
+              successfully. We'll get back to you within 24 hours.
+            </div>
+          </div>
+        )}
+
+        {submitStatus === "error" && (
+          <div className="error-message">
+            <div className="error-icon"></div>
+            <div>
+              <strong>Oops!</strong> Something went wrong. Please try again or
+              contact us directly.
+            </div>
+          </div>
+        )}
+
+        <div className="hotc-container">
+          <div className="contact-form-container fade-in-left">
+            <div className="form-header">
+              <h2>Send us a Query</h2>
+              <p>
                 Fill out the form below and we'll get back to you as soon as
                 possible
               </p>
@@ -398,13 +518,6 @@ const Landing = () => {
               action="https://api.web3forms.com/submit"
               method="POST"
               onSubmit={handleSubmit}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.5rem",
-                flex: "1",
-                overflow: "visible",
-              }}
             >
               <input
                 type="hidden"
@@ -422,167 +535,44 @@ const Landing = () => {
                 value="New Contact Form Submission - House on the Clouds"
               />
 
-              <div
-                className="form-row"
-                style={{ display: "flex", gap: "1rem" }}
-              >
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="name"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Full Name *
-                  </label>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="name">Full Name *</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
                     placeholder="Enter your full name"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
                   />
                 </div>
 
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="email"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Email Address *
-                  </label>
+                <div className="form-group">
+                  <label htmlFor="email">Email Address *</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
                     placeholder="Enter your email address"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
                   />
                 </div>
               </div>
 
-              <div
-                className="form-row"
-                style={{ display: "flex", gap: "1rem" }}
-              >
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="phone"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Phone Number
-                  </label>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="phone">Phone Number</label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     placeholder="Enter your phone number"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
                   />
                 </div>
 
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="subject"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Subject *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    required
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
-                  >
+                <div className="form-group">
+                  <label htmlFor="subject">Subject *</label>
+                  <select id="subject" name="subject" required>
                     <option value="">Select a subject</option>
                     <option value="booking">Booking Inquiry</option>
                     <option value="availability">Availability Check</option>
@@ -594,124 +584,22 @@ const Landing = () => {
                 </div>
               </div>
 
-              <div
-                className="form-row"
-                style={{ display: "flex", gap: "1rem" }}
-              >
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="checkIn"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Check-in Date
-                  </label>
-                  <input
-                    type="date"
-                    id="checkIn"
-                    name="checkIn"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
-                  />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="checkIn">Check-in Date</label>
+                  <input type="date" id="checkIn" name="checkIn" />
                 </div>
 
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="checkOut"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Check-out Date
-                  </label>
-                  <input
-                    type="date"
-                    id="checkOut"
-                    name="checkOut"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
-                  />
+                <div className="form-group">
+                  <label htmlFor="checkOut">Check-out Date</label>
+                  <input type="date" id="checkOut" name="checkOut" />
                 </div>
               </div>
 
-              <div
-                className="form-row"
-                style={{ display: "flex", gap: "1rem" }}
-              >
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="guests"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Number of Guests
-                  </label>
-                  <select
-                    id="guests"
-                    name="guests"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
-                  >
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="guests">Number of Guests</label>
+                  <select id="guests" name="guests">
                     <option value="">Select number of guests</option>
                     <option value="1">1 Guest</option>
                     <option value="2">2 Guests</option>
@@ -721,41 +609,9 @@ const Landing = () => {
                   </select>
                 </div>
 
-                <div
-                  className="form-group"
-                  style={{
-                    flex: "1",
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
-                  <label
-                    htmlFor="roomPreference"
-                    style={{
-                      fontSize: "0.9rem",
-                      fontWeight: "600",
-                      color: "#4a1818",
-                      marginBottom: "0.5rem",
-                      fontFamily: "'Poppins', sans-serif",
-                    }}
-                  >
-                    Room Preference
-                  </label>
-                  <select
-                    id="roomPreference"
-                    name="roomPreference"
-                    style={{
-                      padding: "1rem",
-                      border: "2px solid #e0e0e0",
-                      borderRadius: "8px",
-                      fontSize: "1rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      transition: "all 0.3s ease",
-                      cursor: "pointer",
-                      color: "#000000",
-                      backgroundColor: "#ffffff",
-                    }}
-                  >
+                <div className="form-group">
+                  <label htmlFor="roomPreference">Room Preference</label>
+                  <select id="roomPreference" name="roomPreference">
                     <option value="">Select room preference</option>
                     <option value="dawa">Dawa (Moon)</option>
                     <option value="sprin">Sprin (Clouds)</option>
@@ -769,44 +625,14 @@ const Landing = () => {
                 </div>
               </div>
 
-              <div
-                className="form-group full-width"
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <label
-                  htmlFor="message"
-                  style={{
-                    fontSize: "0.9rem",
-                    fontWeight: "600",
-                    color: "#4a1818",
-                    marginBottom: "0.5rem",
-                    fontFamily: "'Poppins', sans-serif",
-                  }}
-                >
-                  Message *
-                </label>
+              <div className="form-group full-width">
+                <label htmlFor="message">Message *</label>
                 <textarea
                   id="message"
                   name="message"
                   required
                   rows="6"
                   placeholder="Tell us about your requirements, questions, or any special requests..."
-                  style={{
-                    padding: "1rem",
-                    border: "2px solid #e0e0e0",
-                    borderRadius: "8px",
-                    fontSize: "1rem",
-                    fontFamily: "'Poppins', sans-serif",
-                    resize: "vertical",
-                    minHeight: "120px",
-                    transition: "all 0.3s ease",
-                    color: "#000000",
-                    backgroundColor: "#ffffff",
-                  }}
                 ></textarea>
               </div>
 
@@ -814,23 +640,6 @@ const Landing = () => {
                 type="submit"
                 className="submit-btn"
                 disabled={isSubmitting}
-                style={{
-                  background:
-                    "linear-gradient(135deg, #B61F1F 0%, #8a1a1a 100%)",
-                  color: "white",
-                  border: "none",
-                  padding: "1rem 2rem",
-                  borderRadius: "8px",
-                  fontSize: "1.1rem",
-                  fontWeight: "600",
-                  cursor: "pointer",
-                  width: "100%",
-                  marginTop: "1rem",
-                  fontFamily: "'Poppins', sans-serif",
-                  textTransform: "uppercase",
-                  letterSpacing: "1px",
-                  transition: "all 0.3s ease",
-                }}
               >
                 {isSubmitting ? (
                   <>
@@ -844,20 +653,7 @@ const Landing = () => {
             </form>
           </div>
 
-          <div
-            className="hotc-map"
-            style={{
-              flex: "0 1 50%",
-              height: "800px",
-              borderRadius: "15px",
-              overflow: "hidden",
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
-              border: "2px solid #e0e0e0",
-              boxSizing: "border-box",
-              marginLeft: "auto",
-              alignSelf: "flex-start",
-            }}
-          >
+          <div className="hotc-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2566.5445026284897!2d77.98247847200939!3d32.34439881647555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3906a952f92a494f%3A0x1b3c31382fd3f7b5!2sHouse%20on%20the%20Clouds%20Spiti!5e1!3m2!1sen!2sin!4v1755552949588!5m2!1sen!2sin"
               width="100%"
@@ -870,12 +666,13 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className="common-area-images">
+        <div className="landing-common-area-images">
           <div className="common-area-image-container">
             <img
               src="/images/landing-common-1.jpg"
               alt="Cozy Lounge Area"
               className="common-area-image"
+              loading="lazy"
             />
           </div>
 
@@ -884,6 +681,7 @@ const Landing = () => {
               src="/images/landing-common-2.jpg"
               alt="Living Room with Mountain Views"
               className="common-area-image"
+              loading="lazy"
             />
           </div>
 
@@ -892,6 +690,7 @@ const Landing = () => {
               src="/images/landing-common-3.jpg"
               alt="Warm Common Area"
               className="common-area-image"
+              loading="lazy"
             />
           </div>
         </div>

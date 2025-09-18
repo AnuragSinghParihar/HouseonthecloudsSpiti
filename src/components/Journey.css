@@ -1,444 +1,472 @@
-/* BLESSED SECTION */
-.blessed-section {
-  background-color: #f0e8dc;
-  padding: 80px 0;
-  margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
+
+/* Journey Page Styles */
+.journey-page {
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  overflow-x: hidden;
 }
 
-.blessed-container {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
-  padding: 2rem;
-  margin: 0;
-  position: relative;
+/* Journey Blessed Section */
+.journey-blessed-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  margin: 0 0 6rem;
+}
+
+.journey-blessed-container {
+  display: contents;
+}
+
+.journey-blessed-image {
   overflow: hidden;
 }
 
-.blessed-image {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.blessed-img {
-  width: 950px;
+.journey-blessed-img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-.blessed-content {
-  flex: 1;
+.journey-blessed-img:hover {
+  transform: scale(1.02);
+}
+
+.journey-blessed-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 3rem;
-  height: 100%;
-}
-
-.blessed-title {
-  font-family: 'Courier New', Courier, monospace;
-  color: #b61f1f;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 0;
-  white-space: nowrap;
-}
-
-.blessed-text {
-  color: black;
-  font-size: 1.1rem;
-  font-weight: normal;
-  line-height: 1.4;
-  margin: 0;
-  max-width: 400px;
-}
-
-/* NAVBAR STYLING FOR JOURNEY PAGE */
-.journey-page .navbar {
-  background: #4a1818 !important;
-  backdrop-filter: blur(10px) !important;
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(74, 24, 24, 0.3),
-    0 0 20px rgba(74, 24, 24, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
-}
-
-/* LAMA'S BLESSING SECTION */
-.lamas-blessing-section {
-  background-color: #f0e8dc;
-  padding: 0 0 80px 0;
-  margin: 0;
-}
-
-.lamas-blessing-container {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
-  padding: 2rem;
-  margin: 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.lamas-blessing-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 3rem;
-  height: 100%;
-}
-
-.lamas-blessing-title {
-  font-family: 'Courier New', Courier, monospace;
-  color: #b61f1f;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 0;
-  white-space: nowrap;
-}
-
-.lamas-blessing-text {
-  color: black;
-  font-size: 1.1rem;
-  font-weight: normal;
-  line-height: 1.4;
-  margin: 0;
-  max-width: 400px;
-}
-
-.lamas-blessing-image {
-  flex: 1;
-  height: 100%;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  padding: 4rem 3rem;
+  background: #f8f8f8;
 }
 
-.lamas-blessing-img {
-  width: 950px;
+.journey-blessed-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.journey-blessed-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
+}
+
+/* Journey Lama's Blessing Section */
+.journey-lamas-blessing-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  margin: 6rem 0;
+}
+
+.journey-lamas-blessing-container {
+  display: contents;
+}
+
+.journey-lamas-blessing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  background: white;
+  order: 1;
+}
+
+.journey-lamas-blessing-image {
+  overflow: hidden;
+  order: 2;
+}
+
+.journey-lamas-blessing-img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-/* COLLABORATION SECTION */
-.collaboration-section {
-  background-color: #f0e8dc;
-  padding: 0 0 80px 0;
-  margin: 0;
+.journey-lamas-blessing-img:hover {
+  transform: scale(1.02);
 }
 
-.collaboration-container {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
-  padding: 2rem;
-  margin: 0;
-  position: relative;
+.journey-lamas-blessing-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.journey-lamas-blessing-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
+}
+
+/* Journey Collaboration Section */
+.journey-collaboration-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  margin: 6rem 0;
+}
+
+.journey-collaboration-container {
+  display: contents;
+}
+
+.journey-collaboration-image {
   overflow: hidden;
 }
 
-.collaboration-image {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.collaboration-img {
-  width: 950px;
+.journey-collaboration-img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-.collaboration-content {
-  flex: 1;
+.journey-collaboration-img:hover {
+  transform: scale(1.02);
+}
+
+.journey-collaboration-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 3rem;
-  height: 100%;
+  justify-content: center;
+  padding: 4rem 3rem;
+  background: #f8f8f8;
 }
 
-.collaboration-title {
-  font-family: 'Courier New', Courier, monospace;
-  color: #b61f1f;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 0;
-  white-space: nowrap;
+.journey-collaboration-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
-.collaboration-text {
-  color: black;
-  font-size: 1.1rem;
-  font-weight: normal;
-  line-height: 1.4;
-  margin: 0;
-  max-width: 400px;
+.journey-collaboration-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
 }
 
-/* SANCTUARY SECTION */
-.sanctuary-section {
-  background-color: #f0e8dc;
-  padding: 0 0 80px 0;
-  margin: 0;
+/* Journey Sanctuary Section */
+.journey-sanctuary-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  margin: 6rem 0;
 }
 
-.sanctuary-container {
+.journey-sanctuary-container {
+  display: contents;
+}
+
+.journey-sanctuary-content {
   display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
-  padding: 2rem;
-  margin: 0;
-  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  background: white;
+  order: 1;
+}
+
+.journey-sanctuary-image {
   overflow: hidden;
+  order: 2;
 }
 
-.sanctuary-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 3rem;
+.journey-sanctuary-img {
+  width: 100%;
   height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.sanctuary-title {
-  font-family: 'Courier New', Courier, monospace;
-  color: #b61f1f;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 0;
-  white-space: nowrap;
+.journey-sanctuary-img:hover {
+  transform: scale(1.02);
 }
 
-.sanctuary-text {
-  color: black;
-  font-size: 1.1rem;
-  font-weight: normal;
-  line-height: 1.4;
-  margin: 0 0 15px 0;
-  max-width: 400px;
+.journey-sanctuary-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
-.sanctuary-text:last-child {
+.journey-sanctuary-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.journey-sanctuary-text:last-child {
   margin-bottom: 0;
 }
 
-.sanctuary-image {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Journey Stories Section */
+.journey-stories-section {
+  margin: 6rem 0;
 }
 
-.sanctuary-img {
-  width: 950px;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 70%;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+.journey-stories-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 90vh;
+  margin-bottom: 8rem;
 }
 
-/* STORIES SECTION */
-.stories-section {
-  background-color: #f0e8dc;
-  padding: 0 0 80px 0;
-  margin: 0;
-}
-
-.stories-container {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  height: 80vh;
-  padding: 2rem;
-  margin: 0;
-  position: relative;
+.journey-stories-image {
   overflow: hidden;
 }
 
-.stories-image {
-  flex: 1;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.stories-img {
-  width: 950px;
+.journey-stories-img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-.stories-content {
-  flex: 1;
+.journey-stories-img:hover {
+  transform: scale(1.02);
+}
+
+.journey-stories-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 2rem 3rem;
-  height: 100%;
+  justify-content: center;
+  padding: 4rem 3rem;
+  background: #f8f8f8;
 }
 
-.stories-title {
-  font-family: 'Courier New', Courier, monospace;
-  color: #b61f1f;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  margin-top: 0;
-  white-space: nowrap;
+.journey-stories-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
-.stories-text {
-  color: black;
-  font-size: 1.1rem;
-  font-weight: normal;
-  line-height: 1.4;
-  margin: 0 0 15px 0;
-  max-width: 400px;
+.journey-stories-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
 }
 
-.stories-text:last-child {
+.journey-stories-text:last-child {
   margin-bottom: 0;
 }
 
-.three-image-section {
-    background: #f7f0e6;
-    padding: 4rem 0;
-    width: 100vw;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-  
-  .three-image-container {
-    max-width: 1700px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-    box-sizing: border-box;
-    height: auto;
-  }
-  
-  .three-heading-above {
-    font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 0;
+/* Journey Three Image Section */
+.journey-three-image-section {
+  padding: 6rem 2rem;
+  background: white;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.journey-three-image-container {
+  position: relative;
+}
+
+.journey-three-heading-above {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.journey-three-images-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.journey-three-image-item {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.journey-three-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.journey-three-image:hover {
+  transform: scale(1.05);
+}
+
+.journey-three-text-right-top,
+.journey-three-text-left-bottom {
+  position: absolute;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.journey-three-text-right-top {
+  top: 20%;
+  right: -2rem;
+  transform: translateX(50%);
+}
+
+.journey-three-text-left-bottom {
+  bottom: 20%;
+  left: -2rem;
+  transform: translateX(-50%);
+}
+
+.journey-three-copy {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .journey-three-text-right-top,
+  .journey-three-text-left-bottom {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    margin: 2rem auto;
     text-align: center;
   }
-  
-  .three-images-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 1rem;
-    width: 100%;
-    height: 1200px;
-    position: relative;
-    left: 20px;
+
+  .journey-three-images-row {
+    margin-bottom: 0;
   }
-  
-  .three-image-item {
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  /* Stack sections vertically on mobile */
+  .journey-blessed-section,
+  .journey-lamas-blessing-section,
+  .journey-collaboration-section,
+  .journey-sanctuary-section,
+  .journey-stories-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
-  
-  .three-image-item:hover {
-    transform: scale(1.02);
+
+  .journey-blessed-content,
+  .journey-lamas-blessing-content,
+  .journey-collaboration-content,
+  .journey-sanctuary-content,
+  .journey-stories-content {
+    padding: 3rem 2rem;
+    order: 2;
   }
-  
-  .three-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 15px;
+
+  .journey-blessed-image,
+  .journey-lamas-blessing-image,
+  .journey-collaboration-image,
+  .journey-sanctuary-image,
+  .journey-stories-image {
+    min-height: 300px;
+    order: 1;
   }
-  
-  .first-image {
-    width: 415px;
-    height: 600px;
-    align-self: flex-start;
+
+  .journey-blessed-title,
+  .journey-lamas-blessing-title,
+  .journey-collaboration-title,
+  .journey-sanctuary-title,
+  .journey-stories-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
   }
-  
-  .second-image {
-    width: 515px;
-    height: 1200px;
+
+  .journey-blessed-text,
+  .journey-lamas-blessing-text,
+  .journey-collaboration-text,
+  .journey-sanctuary-text,
+  .journey-stories-text {
+    font-size: 1.1rem;
   }
-  
-  .third-image {
-    width: 415px;
-    height: 600px;
-    align-self: flex-end;
+
+  .journey-three-heading-above {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
   }
-  
-  .three-text-right-top {
-    position: absolute;
-    top: 20px;
-    right: 100px;
-    max-width: 300px;
-    padding: 2rem;
-    z-index: 10;
+
+  .journey-three-images-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
-  .three-text-left-bottom {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-    max-width: 300px;
-    padding: 2rem;
-    z-index: 10;
+
+  .journey-three-image-section {
+    padding: 4rem 1rem;
   }
-  
-  .three-copy {
-    color: black;
-    font-size: 1.5rem;
-    font-weight: normal;
-    line-height: 1.4;
-    margin: 0 0 15px 0;
-    max-width: 400px;
+}
+
+@media (max-width: 480px) {
+  .journey-blessed-content,
+  .journey-lamas-blessing-content,
+  .journey-collaboration-content,
+  .journey-sanctuary-content,
+  .journey-stories-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .journey-blessed-title,
+  .journey-lamas-blessing-title,
+  .journey-collaboration-title,
+  .journey-sanctuary-title,
+  .journey-stories-title {
+    font-size: 1.8rem;
+  }
+
+  .journey-three-heading-above {
+    font-size: 1.8rem;
+  }
 }

@@ -22,7 +22,7 @@ html, body {
 }
 
 /* Fixed Navbar Background for Accommodation Page */
-.navbar {
+/* .navbar {
   background: #4a1818 !important;
   backdrop-filter: blur(10px) !important;
   box-shadow: 
@@ -58,7 +58,7 @@ html, body {
     opacity: 0.6;
     transform: scaleX(1.02);
   }
-}
+} */
 
 /* Fullscreen Building Section */
 .fullscreen-building-section {

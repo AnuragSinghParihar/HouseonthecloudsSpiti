@@ -1,27 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-// Assets moved to public folder - using direct URLs
 
 const Footer = () => {
   return (
-    <div className="footer-container">
-      <header className="logo-header">
-        <div className="logo-center">
-          <img src="/images/logo.jpg" alt="Logo" className="logo" />
+    <div className="footer-main-container">
+      {/* Hero CTA Section */}
+      <div className="footer-hero-cta">
+        <h1 className="footer-hero-title">
+          Experience the magic of the Himalayas
+          <br />
+          at House on the Clouds
+        </h1>
+        <p className="footer-hero-subtitle">
+          Escape to one of the world's highest boutique stays, where
+          breathtaking views meet unparalleled hospitality at 13,615 feet above
+          sea level.
+        </p>
+        <a href="#contact" className="footer-cta-button">
+          Book Your Stay
+          <div className="footer-cta-arrow">↗</div>
+        </a>
+      </div>
+
+      <header className="footer-logo-header">
+        <div className="footer-logo-center">
+          <img src="/images/logo.jpg" alt="Logo" className="footer-logo" />
         </div>
-        <h1 className="main-title">
+        <h1 className="footer-main-title">
           <i>House on the Clouds</i>
         </h1>
-        <p className="location">SPITI VALLEY</p>
-        <p className="tagline">A place to pause, breathe and belong</p>
+        <p className="footer-location">SPITI VALLEY</p>
+        <p className="footer-tagline">A place to pause, breathe and belong</p>
         <div className="footer-underline"></div>
       </header>
+
       <div className="footer-divider"></div>
-      <section className="main-section">
-        <div className="left">
+
+      <section className="footer-main-section">
+        <div className="footer-left">
           <p>
-            HOUSE ON THE CLOUDS, Chicham village 172114 ,<br />
+            HOUSE ON THE CLOUDS, Chicham village 172114,
+            <br />
             Kaza, Himachal Pradesh, India
           </p>
           <p>
@@ -30,8 +50,8 @@ const Footer = () => {
             +91 9805848433
           </p>
         </div>
-        <div className="center"></div>
-        <div className="right">
+        <div className="footer-center"></div>
+        <div className="footer-right">
           <Link to="/journey" className="footer-link">
             The Journey,
           </Link>
@@ -44,12 +64,12 @@ const Footer = () => {
           <Link to="/contact" className="footer-link">
             Contact
           </Link>
-          <div className="instagram-section">
+          <div className="footer-instagram-section">
             <a
               href="https://www.instagram.com/houseontheclouds.spiti/"
               target="_blank"
               rel="noopener noreferrer"
-              className="instagram-link"
+              className="footer-instagram-link"
             >
               <svg
                 width="20"
@@ -64,6 +84,20 @@ const Footer = () => {
           </div>
         </div>
       </section>
+
+      {/* Large Brand Text */}
+      <div className="footer-brand-text">HOUSE ON THE CLOUDS</div>
+
+      {/* Bottom Info */}
+      <div className="footer-bottom-info">
+        <div className="footer-legal-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms & Conditions</a>
+        </div>
+        <div className="footer-copyright">
+          ©HouseOnTheClouds 2025. All Rights Reserved
+        </div>
+      </div>
     </div>
   );
 };
