@@ -204,31 +204,43 @@ const Landing = () => {
         </h1>
       </section>
 
-      <section className="hero">
-        <div className="after-hero">
-          <h6 className="heading-one-hero">SPITI VALLEY</h6>
-          <p className="para-one">
-            House on the Clouds offers a rare retreat above the clouds — a
-            boutique homestay surrounded by the majesty of the Himalayas and the
-            timeless spirit of Spiti. Experience unparalleled hospitality where
-            every sunrise paints a new masterpiece across endless mountain
-            vistas.
-          </p>
+      {/* Mobile Reel Video Section */}
+      <section
+        className={`landing-reel-section ${
+          isVisible["landing-reel-section"] ? "animate-in" : ""
+        }`}
+        id="landing-reel-section"
+      >
+        <div className="landing-reel-container">
+          <div className="landing-reel-content">
+            <h3 className="landing-reel-title">Moments in Motion</h3>
+            <p className="landing-reel-text">
+              Experience the raw beauty of Spiti Valley through authentic
+              moments captured in motion. From sunrise over ancient peaks to the
+              gentle rustle of prayer flags, these glimpses reveal the soul of
+              our mountain sanctuary.
+            </p>
+            <div className="landing-reel-details">
+              <span>Life above the clouds</span>
+            </div>
+          </div>
+          <div className="landing-reel-video">
+            <video
+              className="landing-reel-vid"
+              autoPlay
+              muted
+              loop
+              playsInline
+              onError={(e) => {
+                console.error("Reel video error:", e.target.error);
+                e.target.style.display = "none";
+              }}
+            >
+              <source src="/videos/MobileVideo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
-        <video
-          className="bg-video-one"
-          autoPlay
-          muted
-          loop
-          playsInline
-          onError={(e) => {
-            console.error("Hotel video error:", e.target.error);
-            e.target.style.display = "none";
-          }}
-        >
-          <source src="/videos/landing-hotel.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
       </section>
 
       {/* Side-by-side Experience Section */}
@@ -281,6 +293,32 @@ const Landing = () => {
             loading="lazy"
           />
         </div>
+      </section>
+      <section className="hero">
+        <div className="after-hero">
+          <h6 className="heading-one-hero">SPITI VALLEY</h6>
+          <p className="para-one">
+            House on the Clouds offers a rare retreat above the clouds — a
+            boutique homestay surrounded by the majesty of the Himalayas and the
+            timeless spirit of Spiti. Experience unparalleled hospitality where
+            every sunrise paints a new masterpiece across endless mountain
+            vistas.
+          </p>
+        </div>
+        <video
+          className="bg-video-one"
+          autoPlay
+          muted
+          loop
+          playsInline
+          onError={(e) => {
+            console.error("Hotel video error:", e.target.error);
+            e.target.style.display = "none";
+          }}
+        >
+          <source src="/videos/landing-hotel.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </section>
 
       <section className="experiences-section">

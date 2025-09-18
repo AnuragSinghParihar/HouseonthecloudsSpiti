@@ -132,43 +132,57 @@ const Journey = () => {
 
         <div className="journey-three-image-section">
           <div className="journey-three-image-container">
-            <h3 className="journey-three-heading-above">
-              Mud Sourced From Spiti Valley
-            </h3>
-            <div className="journey-three-images-row">
-              <div className="journey-three-image-item journey-first-image">
-                <img
-                  src="/images/journey-5.PNG"
-                  alt="Construction Work"
-                  className="journey-three-image"
-                  loading="lazy"
-                />
+            {/* Left Column - Images */}
+            <div className="journey-three-images-column">
+              <div className="journey-three-images-row">
+                <div className="journey-three-image-item">
+                  <img
+                    src="/images/journey-5.PNG"
+                    alt="Construction Work"
+                    className="journey-three-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="journey-three-image-item">
+                  <img
+                    src="/images/journey-6.jpg"
+                    alt="Bedroom Interior"
+                    className="journey-three-image"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <div className="journey-three-image-item journey-second-image">
-                <img
-                  src="/images/journey-6.jpg"
-                  alt="Bedroom Interior"
-                  className="journey-three-image"
-                  loading="lazy"
-                />
+              <div className="journey-three-single-image">
+                <div className="journey-three-image-item">
+                  <img
+                    src="/images/journey-7.PNG"
+                    alt="Wall Construction"
+                    className="journey-three-image"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <div className="journey-three-image-item journey-third-image">
-                <img
-                  src="/images/journey-7.PNG"
-                  alt="Wall Construction"
-                  className="journey-three-image"
-                  loading="lazy"
-                />
+              {/* Placeholder for additional image */}
+              <div className="journey-three-image-item journey-image-placeholder"></div>
+            </div>
+
+            {/* Right Column - Content */}
+            <div className="journey-three-content-column">
+              <h3 className="journey-three-heading-above">
+                Mud Sourced From Spiti Valley
+              </h3>
+
+              <div className="journey-three-quote">
+                Every wall tells a story of the land
               </div>
-              <div className="journey-three-text-right-top">
+
+              <div className="journey-three-description">
                 <p className="journey-three-copy">
-                  At House on the Clouds, every wall tells a story of the land.
-                  The mud used in our architecture is sourced directly from the
-                  valley, in its natural palette of warm earth tones, bringing
-                  the mountains into every corner of our home.
+                  At House on the Clouds, the mud used in our architecture is
+                  sourced directly from the valley, in its natural palette of
+                  warm earth tones, bringing the mountains into every corner of
+                  our home.
                 </p>
-              </div>
-              <div className="journey-three-text-left-bottom">
                 <p className="journey-three-copy">
                   This authentic building approach creates a living space that
                   breathes with the rhythm of the mountains, where traditional

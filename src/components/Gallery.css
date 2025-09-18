@@ -45,14 +45,14 @@ html, body {
   animation: fadeInUp 1.5s ease;
 }
 
-.hero-title {
+/* .hero-title {
   font-size: clamp(3rem, 8vw, 6rem);
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   margin-bottom: 1rem;
   color: #b62222;
   animation: slideInFromTop 1.2s ease 0.3s both;
-}
+} */
 
 .hero-subtitle {
   font-size: clamp(1.2rem, 3vw, 1.8rem);

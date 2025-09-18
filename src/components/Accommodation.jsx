@@ -3,278 +3,306 @@ import "./Accommodation.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-const Accomodation = () => {
-  const [openItem, setOpenItem] = useState(0);
+const Accommodation = () => {
+  const [expandedAccordion, setExpandedAccordion] = useState(0);
 
-  const toggleItem = (index) => {
-    setOpenItem(openItem === index ? -1 : index);
+  const handleAccordionToggle = (index) => {
+    setExpandedAccordion(expandedAccordion === index ? -1 : index);
   };
+
   return (
-    <div className="stay-page">
+    <div className="accommodation-page">
       <Navbar />
 
-      <section className="accommodation-image-section">
-        <div className="accommodation-image-container">
-          <div className="accommodation-image">
+      {/* Hero Section */}
+      <section className="accom-hero-section">
+        <div className="accom-hero-container">
+          <div className="accom-hero-content">
+            <div className="accom-hero-text">
+              <h1 className="accom-hero-title">Stay With Us</h1>
+              <div className="accom-hero-divider"></div>
+              <p className="accom-hero-subtitle">
+                Your house above the clouds at 13,500 ft
+              </p>
+            </div>
+          </div>
+          <div className="accom-hero-image">
             <img
               src="images/accommodation-room.jpg"
-              alt="Accommodation room"
-              className="accommodation-img"
+              alt="Luxury mountain accommodation"
+              className="accom-hero-img"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
-      <section className="elegant-text-section">
-        <div className="elegant-text-container">
-          <h2 className="elegant-top-text">STAY WITH US</h2>
-          <div className="elegant-separator"></div>
-          <h1 className="elegant-bottom-text">
-            Your house above the clouds at 13,500 ft
-          </h1>
+
+      {/* Room Showcase Section 1 */}
+      <section className="accom-showcase-section">
+        <div className="accom-showcase-container">
+          <div className="accom-showcase-image">
+            <img
+              src="/images/accommodation-room-1.jpg"
+              alt="Mountain view room"
+              className="accom-showcase-img"
+              loading="lazy"
+            />
+          </div>
+          <div className="accom-showcase-content">
+            <h3 className="accom-showcase-title">Mountain Sanctuary</h3>
+            <p className="accom-showcase-text">
+              A serene mountain retreat where elegance meets comfort—this room
+              features large windows that open to breathtaking valley views, a
+              cozy seating corner perfect for slow mornings, and warm wooden
+              interiors that blend modern design with natural charm.
+            </p>
+          </div>
         </div>
       </section>
-      <section className="additional-room-image-section">
-        <div className="additional-room-text">
-          <p className="room-description-text">
-            A serene mountain retreat where elegance meets comfort—this room
-            features large windows that open to breathtaking valley views, a
-            cozy seating corner perfect for slow mornings, and warm wooden
-            interiors that blend modern design with natural charm.
-          </p>
-        </div>
-        <div className="additional-room-image-container">
-          <img
-            src="/images/accommodation-room-1.jpg"
-            alt="Room with Mountain View"
-            className="additional-room-image"
-          />
-        </div>
-      </section>
-      <section className="third-image-section">
-        <div className="third-image-container">
+
+      {/* Full Width Feature Image */}
+      <section className="accom-feature-section">
+        <div className="accom-feature-container">
           <img
             src="/images/accommodation-room-2.jpg"
-            alt="Bedroom with Mountain Views"
-            className="third-room-image"
+            alt="Spacious bedroom with mountain views"
+            className="accom-feature-img"
+            loading="lazy"
           />
-        </div>
-      </section>
-      <section className="fourth-image-section">
-        <div className="fourth-image-container">
-          <img
-            src="/images/accommodation-room-3.jpg"
-            alt="Bedroom with Accent Wall"
-            className="fourth-room-image"
-          />
-        </div>
-        <div className="fourth-room-text">
-          <p className="fourth-room-description-text">
-            Inspired by the natural palette of Spiti, this room blends earthy
-            textures with modern elegance. The handcrafted wall design and warm
-            accents reflect the valley's rugged beauty, while plush bedding and
-            soft tones create a serene retreat in the heart of Chicham.
-          </p>
-        </div>
-      </section>
-      <section className="fifth-image-section">
-        <div className="fifth-room-text">
-          <p className="fifth-room-description-text">
-            Experience luxury in every detail with our thoughtfully designed
-            bathroom. Featuring modern fixtures, elegant tile work, and a window
-            that frames the stunning mountain landscape, this space combines
-            comfort with the breathtaking views that make House on the Clouds
-            truly special.
-          </p>
-        </div>
-        <div className="fifth-image-container">
-          <img
-            src="/images/accommodation-bathroom-1.jpg"
-            alt="Bathroom with Mountain View"
-            className="fifth-room-image"
-          />
-        </div>
-      </section>
-      <section className="features-section">
-        <div className="features-left-image">
-          <img
-            src="/images/accommodation-feature-left.jpg"
-            alt="Bedroom with Mountain Views"
-            className="features-image"
-          />
-        </div>
-
-        <div className="features-text-center">
-          <h3 className="features-title">HOUSE ON THE CLOUDS FEATURES</h3>
-          <h2 className="features-heading">
-            During your stay you'll experience...
-          </h2>
-          <ul className="features-list">
-            <li>King-sized beds with premium linens</li>
-            <li>Ensuite bathrooms with hot water</li>
-            <li>Locally inspired decor & handcrafted details</li>
-            <li>Panoramic mountain views</li>
-            <li>Heating arrangements for colder months</li>
-            <li>Complimentary Wi-Fi (where available)</li>
-          </ul>
-        </div>
-
-        <div className="features-right-image">
-          <img
-            src="/images/accommodation-feature-right.jpg"
-            alt="Ornate Copper Teapot"
-            className="features-image"
-          />
+          <div className="accom-feature-overlay">
+            <h2 className="accom-feature-quote">
+              "Where comfort meets the infinite sky"
+            </h2>
+          </div>
         </div>
       </section>
 
-      <section className="fullscreen-building-section">
-        <div className="fullscreen-building-container">
+      {/* Room Showcase Section 2 */}
+      <section className="accom-showcase-section accom-showcase-reverse">
+        <div className="accom-showcase-container">
+          <div className="accom-showcase-content">
+            <h3 className="accom-showcase-title">Earthy Elegance</h3>
+            <p className="accom-showcase-text">
+              Inspired by the natural palette of Spiti, this room blends earthy
+              textures with modern elegance. The handcrafted wall design and
+              warm accents reflect the valley's rugged beauty, while plush
+              bedding and soft tones create a serene retreat in the heart of
+              Chicham.
+            </p>
+          </div>
+          <div className="accom-showcase-image">
+            <img
+              src="/images/accommodation-room-3.jpg"
+              alt="Earthy bedroom design"
+              className="accom-showcase-img"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Bathroom Section */}
+      <section className="accom-showcase-section">
+        <div className="accom-showcase-container">
+          <div className="accom-showcase-image">
+            <img
+              src="/images/accommodation-bathroom-1.jpg"
+              alt="Luxury bathroom with mountain view"
+              className="accom-showcase-img"
+              loading="lazy"
+            />
+          </div>
+          <div className="accom-showcase-content">
+            <h3 className="accom-showcase-title">Luxury Redefined</h3>
+            <p className="accom-showcase-text">
+              Experience luxury in every detail with our thoughtfully designed
+              bathroom. Featuring modern fixtures, elegant tile work, and a
+              window that frames the stunning mountain landscape, this space
+              combines comfort with the breathtaking views that make House on
+              the Clouds truly special.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Amenities Grid Section */}
+      <section className="accom-amenities-section">
+        <div className="accom-amenities-container">
+          <div className="accom-amenities-header">
+            <h2 className="accom-amenities-title">Experience Comfort</h2>
+            <p className="accom-amenities-subtitle">
+              During your stay you'll experience...
+            </p>
+          </div>
+
+          <div className="accom-amenities-grid">
+            <div className="accom-amenities-images">
+              <div className="accom-amenity-image">
+                <img
+                  src="/images/accommodation-feature-left.jpg"
+                  alt="Comfortable bedroom"
+                  className="accom-amenity-img"
+                  loading="lazy"
+                />
+              </div>
+              <div className="accom-amenity-image">
+                <img
+                  src="/images/accommodation-feature-right.jpg"
+                  alt="Traditional details"
+                  className="accom-amenity-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div className="accom-amenities-list">
+              <ul className="accom-features-list">
+                <li className="accom-feature-item">
+                  King-sized beds with premium linens
+                </li>
+                <li className="accom-feature-item">
+                  Ensuite bathrooms with hot water
+                </li>
+                <li className="accom-feature-item">
+                  Locally inspired decor & handcrafted details
+                </li>
+                <li className="accom-feature-item">Panoramic mountain views</li>
+                <li className="accom-feature-item">
+                  Heating arrangements for colder months
+                </li>
+                <li className="accom-feature-item">
+                  Complimentary Wi-Fi (where available)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Architecture Showcase */}
+      <section className="accom-architecture-section">
+        <div className="accom-architecture-container">
           <img
             src="/images/accommodation-building-1.jpg"
-            alt="House on the Clouds - Traditional Building"
-            className="fullscreen-building-image"
+            alt="Traditional Himalayan architecture"
+            className="accom-architecture-img"
+            loading="lazy"
           />
-        </div>
-      </section>
-
-      <section className="common-area-section">
-        <br />
-        <br />
-        <div className="common-area-header">
-          <h2 className="common-area-title">Common Areas</h2>
-          <p className="common-area-subtitle">
-            Spaces designed for connection and relaxation
-          </p>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <div className="common-area-images">
-          <div className="common-area-image-container">
-            <img
-              src="/images/accommodation-common-1.jpg"
-              alt="Cozy Lounge Area"
-              className="common-area-image"
-            />
-          </div>
-
-          <div className="common-area-image-container">
-            <img
-              src="/images/accommodation-common-2.jpg"
-              alt="Living Room with Mountain Views"
-              className="common-area-image"
-            />
-          </div>
-
-          <div className="common-area-image-container">
-            <img
-              src="/images/accommodation-common-3.jpg"
-              alt="Warm Common Area"
-              className="common-area-image"
-            />
+          <div className="accom-architecture-caption">
+            <p>Traditional Himalayan architecture meets modern comfort</p>
           </div>
         </div>
       </section>
-      <br />
-      <br />
 
-      <section className="hotel-info-section">
-        <div className="hotel-info-header">
-          <h2 className="hotel-info-title">Hotel & Room Information</h2>
-          <p className="hotel-info-subtitle">
-            Information for your stay at House on the Clouds
-          </p>
+      {/* Common Areas */}
+      <section className="accom-common-section">
+        <div className="accom-common-container">
+          <div className="accom-common-header">
+            <h2 className="accom-common-title">Common Areas</h2>
+            <p className="accom-common-subtitle">
+              Spaces designed for connection and relaxation
+            </p>
+          </div>
+
+          <div className="accom-common-gallery">
+            <div className="accom-common-item accom-common-large">
+              <img
+                src="/images/accommodation-common-1.jpg"
+                alt="Cozy lounge area"
+                className="accom-common-img"
+                loading="lazy"
+              />
+              <div className="accom-common-overlay">
+                <h3>Lounge Area</h3>
+              </div>
+            </div>
+
+            <div className="accom-common-item">
+              <img
+                src="/images/accommodation-common-2.jpg"
+                alt="Living room with mountain views"
+                className="accom-common-img"
+                loading="lazy"
+              />
+              <div className="accom-common-overlay">
+                <h3>Mountain Views</h3>
+              </div>
+            </div>
+
+            <div className="accom-common-item">
+              <img
+                src="/images/accommodation-common-3.jpg"
+                alt="Warm gathering space"
+                className="accom-common-img"
+                loading="lazy"
+              />
+              <div className="accom-common-overlay">
+                <h3>Gathering Space</h3>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="hotel-info-container">
-          <div className="info-item">
-            <div className="info-header" onClick={() => toggleItem(0)}>
-              <span className="info-number">01</span>
-              <h3 className="info-title">CANCELLATION & REFUND POLICY</h3>
-              <span className={`info-toggle ${openItem === 0 ? "active" : ""}`}>
-                {openItem === 0 ? "×" : "+"}
-              </span>
-            </div>
-            <div className={`info-content ${openItem === 0 ? "active" : ""}`}>
-              <p>
-                The refund timeline typically takes 1 to 7 business days once a
-                guest cancels their reservation.
-              </p>
-            </div>
+      {/* Information Accordion */}
+      <section className="accom-info-section">
+        <div className="accom-info-container">
+          <div className="accom-info-header">
+            <h2 className="accom-info-title">Essential Information</h2>
+            <p className="accom-info-subtitle">
+              Everything you need to know for your stay
+            </p>
           </div>
 
-          <div className="info-item">
-            <div className="info-header" onClick={() => toggleItem(1)}>
-              <span className="info-number">02</span>
-              <h3 className="info-title">PAYMENT POLICY</h3>
-              <span className={`info-toggle ${openItem === 1 ? "active" : ""}`}>
-                {openItem === 1 ? "×" : "+"}
-              </span>
-            </div>
-            <div className={`info-content ${openItem === 1 ? "active" : ""}`}>
-              <p>
-                All bills must be settled upon presentation. Personal cheques
-                are not accepted.
-              </p>
-            </div>
-          </div>
-
-          <div className="info-item">
-            <div className="info-header" onClick={() => toggleItem(2)}>
-              <span className="info-number">03</span>
-              <h3 className="info-title">CHECK-IN & CHECK OUT</h3>
-              <span className={`info-toggle ${openItem === 2 ? "active" : ""}`}>
-                {openItem === 2 ? "×" : "+"}
-              </span>
-            </div>
-            <div className={`info-content ${openItem === 2 ? "active" : ""}`}>
-              <p>
-                <strong>Check-In Time:</strong> 12:00 PM
-                <br />
-                <strong>Check-Out Time:</strong> 11:00 AM
-              </p>
-              <p>
-                Early check-in and late check-out can be arranged based on
-                availability. Please inform us of your expected arrival time. We
-                provide airport transfers and can arrange local transportation
-                upon request.
-              </p>
-            </div>
-          </div>
-
-          <div className="info-item">
-            <div className="info-header" onClick={() => toggleItem(3)}>
-              <span className="info-number">04</span>
-              <h3 className="info-title">RATES</h3>
-              <span className={`info-toggle ${openItem === 3 ? "active" : ""}`}>
-                {openItem === 3 ? "×" : "+"}
-              </span>
-            </div>
-            <div className={`info-content ${openItem === 3 ? "active" : ""}`}>
-              <p>
-                Rates vary by season and room type. Peak season: ₹8,000-15,000
-                per night. Off-season: ₹6,000-12,000 per night. All rates
-                include breakfast and taxes.
-              </p>
-              <p>
-                <strong>Important:</strong> Room charges exclude applicable
-                taxes and additional services. Guests are advised to contact the
-                Duty Manager for detailed information.
-              </p>
-            </div>
+          <div className="accom-accordion-container">
+            {[
+              {
+                title: "Cancellation & Refund Policy",
+                content:
+                  "The refund timeline typically takes 1 to 7 business days once a guest cancels their reservation. Cancellations made 48 hours prior to check-in are eligible for full refund.",
+              },
+              {
+                title: "Payment Policy",
+                content:
+                  "All bills must be settled upon presentation. We accept cash, cards, and digital payments. Personal cheques are not accepted.",
+              },
+              {
+                title: "Check-in & Check Out",
+                content:
+                  "Check-In Time: 12:00 PM | Check-Out Time: 11:00 AM. Early check-in and late check-out can be arranged based on availability. Please inform us of your expected arrival time. We provide airport transfers and can arrange local transportation upon request.",
+              },
+              {
+                title: "Rates & Pricing",
+                content:
+                  "Rates vary by season and room type. Peak season: ₹8,000-15,000 per night. Off-season: ₹6,000-12,000 per night. All rates include breakfast and taxes. Room charges exclude applicable additional services.",
+              },
+            ].map((item, index) => (
+              <div key={index} className="accom-accordion-item">
+                <div
+                  className="accom-accordion-header"
+                  onClick={() => handleAccordionToggle(index)}
+                >
+                  <span className="accom-accordion-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="accom-accordion-title">{item.title}</h3>
+                  <span
+                    className={`accom-accordion-icon ${
+                      expandedAccordion === index ? "active" : ""
+                    }`}
+                  >
+                    {expandedAccordion === index ? "×" : "+"}
+                  </span>
+                </div>
+                <div
+                  className={`accom-accordion-content ${
+                    expandedAccordion === index ? "active" : ""
+                  }`}
+                >
+                  <p>{item.content}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -284,4 +312,4 @@ const Accomodation = () => {
   );
 };
 
-export default Accomodation;
+export default Accommodation;

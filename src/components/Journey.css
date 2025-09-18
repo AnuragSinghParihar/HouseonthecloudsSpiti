@@ -291,42 +291,56 @@
   margin-bottom: 0;
 }
 
-/* Journey Three Image Section */
+/* Journey Three Image Section - MINIMALIST REDESIGN */
 .journey-three-image-section {
-  padding: 6rem 2rem;
+  padding: 4rem 4rem;
   background: white;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 .journey-three-image-container {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
 }
 
 .journey-three-heading-above {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 4rem;
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
   color: #333;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+
+/* Left column - Images */
+.journey-three-images-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .journey-three-images-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  position: relative;
-  margin-bottom: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.journey-three-single-image {
+  grid-column: 1 / -1;
+  max-width: 70%;
+  margin-left: auto;
 }
 
 .journey-three-image-item {
   aspect-ratio: 4/3;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 }
 
 .journey-three-image {
@@ -337,54 +351,100 @@
 }
 
 .journey-three-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
-.journey-three-text-right-top,
-.journey-three-text-left-bottom {
+/* Right column - Content */
+.journey-three-content-column {
+  padding-left: 2rem;
+}
+
+.journey-three-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.journey-three-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #ddd;
   position: absolute;
-  max-width: 400px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.journey-three-text-right-top {
-  top: 20%;
-  right: -2rem;
-  transform: translateX(50%);
-}
-
-.journey-three-text-left-bottom {
-  bottom: 20%;
+  top: -1rem;
   left: -2rem;
-  transform: translateX(-50%);
+  font-family: serif;
+}
+
+.journey-three-description {
+  margin-bottom: 2rem;
 }
 
 .journey-three-copy {
   font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.8;
   color: #666;
   font-weight: 300;
-  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+.journey-three-copy:last-child {
+  margin-bottom: 0;
+}
+
+/* Placeholder for additional images */
+.journey-image-placeholder {
+  background: url("/images/IMG_4704 3.JPG");
+  background-size: cover;
 }
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .journey-three-text-right-top,
-  .journey-three-text-left-bottom {
-    position: static;
-    transform: none;
-    max-width: 100%;
-    margin: 2rem auto;
-    text-align: center;
+  .journey-three-image-section {
+    padding: 6rem 3rem;
   }
 
-  .journey-three-images-row {
-    margin-bottom: 0;
+  .journey-three-image-container {
+    gap: 4rem;
+  }
+
+  .journey-three-content-column {
+    padding-left: 1rem;
+  }
+
+  .journey-three-heading-above {
+    font-size: 3rem;
+  }
+
+  .journey-three-quote {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .journey-three-image-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .journey-three-content-column {
+    padding-left: 0;
+    order: -1;
+  }
+
+  .journey-three-heading-above {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .journey-three-quote {
+    text-align: center;
+    margin-bottom: 2rem;
   }
 }
 
@@ -442,10 +502,25 @@
   .journey-three-images-row {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .journey-three-single-image {
+    max-width: 100%;
+    margin: 0;
   }
 
   .journey-three-image-section {
     padding: 4rem 1rem;
+  }
+
+  .journey-three-quote {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .journey-three-copy {
+    font-size: 1rem;
   }
 }
 
