@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Gallery.css";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 const Gallery = () => {
   const [activeSection, setActiveSection] = useState("hotel");
@@ -141,8 +139,6 @@ const Gallery = () => {
 
   return (
     <div className="gallery-page">
-      <Navbar />
-
       {/* Gallery Section */}
       <section className="gallery-section">
         <div className="gallery-container">
@@ -377,8 +373,6 @@ const Gallery = () => {
           )}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

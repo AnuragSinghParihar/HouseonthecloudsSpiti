@@ -1,13 +1,9 @@
 import React from "react";
 import "./Journey.css";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 const Journey = () => {
   return (
     <div className="journey-page">
-      <Navbar />
-
       <section className="journey-blessed-section">
         <div className="journey-blessed-container">
           <div className="journey-blessed-image">
@@ -193,8 +189,6 @@ const Journey = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

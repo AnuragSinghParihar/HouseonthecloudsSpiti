@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Landing.css";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 const Landing = () => {
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -208,8 +206,6 @@ const Landing = () => {
           Your browser does not support the video tag.
         </video>
 
-        <Navbar />
-
         <div className="writting">
           <h6 className="heading-one">SPITI VALLEY</h6>
           <h2 className="heading-two">A place to pause, breathe and belong</h2>
@@ -222,7 +218,6 @@ const Landing = () => {
           <br /> <i>Perched at 13,615 ft in Chicham, Spiti Valley</i>
         </h1>
       </section>
-
       {/* Mobile Reel Video Section */}
       <section
         className={`landing-reel-section ${
@@ -261,7 +256,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
       {/* Side-by-side Experience Section */}
       <section
         className={`experience-section ${
@@ -287,7 +281,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
       {/* Side-by-side Room Section */}
       <section
         className={`room-section ${
@@ -339,13 +332,11 @@ const Landing = () => {
           Your browser does not support the video tag.
         </video>
       </section>
-
       <section className="experiences-section">
         <div className="experiences-heading">
           <h2>Experience at House on the Clouds</h2>
         </div>
       </section>
-
       {/* Background Image Section with Text Overlay */}
       <section
         className={`local-welcome-section ${
@@ -362,7 +353,6 @@ const Landing = () => {
           </p>
         </div>
       </section>
-
       {/* Existing Split Sections */}
       <section
         className={`bonfire-section ${
@@ -390,7 +380,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
       <section
         className={`outdoor-breakfast-section ${
           isVisible["outdoor-breakfast-section"] ? "animate-in" : ""
@@ -417,7 +406,48 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
+      {/* Stargazing Section - Creative Minimalist Layout */}
+      <section
+        className={`stargazing-section ${
+          isVisible["stargazing-section"] ? "animate-in" : ""
+        }`}
+        id="stargazing-section"
+      >
+        <div className="stargazing-container">
+          <div className="stargazing-content">
+            <div className="stargazing-text">
+              <h3 className="stargazing-title">Stargazing</h3>
+              <p className="stargazing-description">
+                At 13,615 feet, witness the universe unfold above you. With zero
+                light pollution, the Milky Way reveals itself in all its glory,
+                painting stories across the infinite canvas of the night sky.
+                Each star whispers ancient secrets in the crisp mountain air.
+              </p>
+              <div className="stargazing-accent">
+                <span>Under the Himalayas</span>
+              </div>
+            </div>
+            <div className="stargazing-images">
+              <div className="stargazing-image-primary">
+                <img
+                  src="/images/stargazing-1.JPG"
+                  alt="Stargazing at House on the Clouds"
+                  className="stargazing-img-main"
+                  loading="lazy"
+                />
+              </div>
+              <div className="stargazing-image-secondary">
+                <img
+                  src="/images/gallery-hotel-1.jpg"
+                  alt="Milky Way over Spiti Valley"
+                  className="stargazing-img-small"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Another Background Text Section - Add your image */}
       <section
         className={`background-text-section ${
@@ -434,7 +464,6 @@ const Landing = () => {
           </p>
         </div>
       </section>
-
       <section
         className={`bonfire-section ${
           isVisible["river-breakfast-section"] ? "animate-in" : ""
@@ -461,7 +490,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
       <section
         className={`explore-section ${
           isVisible["explore-section"] ? "animate-in" : ""
@@ -528,7 +556,6 @@ const Landing = () => {
           </div>
         )}
       </section>
-
       <section
         id="contact"
         className={`hotc-section ${
@@ -682,7 +709,7 @@ const Landing = () => {
 
           <div className="common-area-image-container">
             <img
-              src="/images/landing-common-2.jpg"
+              src="/images/accommodation-common-1.jpg"
               alt="Living Room with Mountain Views"
               className="common-area-image"
               loading="lazy"
@@ -699,8 +726,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 };

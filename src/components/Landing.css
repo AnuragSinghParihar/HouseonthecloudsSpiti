@@ -914,3 +914,208 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Stargazing Section - Minimalist Design */
+.stargazing-section {
+  padding: 8rem 0;
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.stargazing-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.stargazing-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.stargazing-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.stargazing-text {
+  color: white;
+  max-width: 500px;
+}
+
+.stargazing-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-transform: lowercase;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.stargazing-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, transparent 100%);
+}
+
+.stargazing-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+.stargazing-accent {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.stargazing-images {
+  position: relative;
+  height: 600px;
+}
+
+.stargazing-image-primary {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 80%;
+  border-radius: 0 0 0 100px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.stargazing-image-secondary {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 45%;
+  height: 50%;
+  border-radius: 100px 0 0 0;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.stargazing-img-main,
+.stargazing-img-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stargazing-images:hover .stargazing-img-main {
+  transform: scale(1.02);
+}
+
+.stargazing-images:hover .stargazing-img-small {
+  transform: scale(1.05);
+}
+
+/* Add stars animation */
+.stargazing-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.2), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 20s linear infinite;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes sparkle {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(200px);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .stargazing-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+  
+  .stargazing-text {
+    max-width: none;
+  }
+  
+  .stargazing-title {
+    font-size: 3rem;
+  }
+  
+  .stargazing-images {
+    height: 400px;
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  
+  .stargazing-image-primary {
+    width: 75%;
+    height: 75%;
+    border-radius: 0 0 0 50px;
+  }
+  
+  .stargazing-image-secondary {
+    width: 50%;
+    height: 45%;
+    border-radius: 50px 0 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .stargazing-section {
+    padding: 4rem 0;
+  }
+  
+  .stargazing-title {
+    font-size: 2.5rem;
+  }
+  
+  .stargazing-description {
+    font-size: 1rem;
+  }
+  
+  .stargazing-images {
+    height: 300px;
+  }
+}

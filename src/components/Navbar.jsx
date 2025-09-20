@@ -86,6 +86,7 @@ const Navbar = () => {
             The Journey
           </Link>
           <Link to="/accommodation">Accommodation</Link>
+          <Link to="/snow-leopard">Snow Leopard</Link>
           <Link to="/gallery">Gallery</Link>
           <Link to="/contact">Contact</Link>
         </div>

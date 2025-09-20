@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Accommodation.css";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 const Accommodation = () => {
   const [expandedAccordion, setExpandedAccordion] = useState(0);
@@ -12,8 +10,6 @@ const Accommodation = () => {
 
   return (
     <div className="accommodation-page">
-      <Navbar />
-
       {/* Hero Section */}
       <section className="accom-hero-section">
         <div className="accom-hero-container">
@@ -306,8 +302,6 @@ const Accommodation = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

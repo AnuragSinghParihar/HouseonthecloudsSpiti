@@ -15,9 +15,10 @@ nav {
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  gap: 2rem;
   padding: 1.5rem 4rem;
   background: rgba(35, 35, 35, 0.255);
   backdrop-filter: blur(5px);
@@ -36,7 +37,8 @@ nav {
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
+  justify-self: start;
 }
 
 .navbar-left a {
@@ -87,9 +89,9 @@ nav {
 
 /* Center Logo */
 .navbar-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-self: center;
+  position: static; /* Remove absolute positioning */
+  transform: none;
 }
 
 .logo-box {
@@ -126,6 +128,8 @@ nav {
 .navbar-right {
   display: flex;
   align-items: center;
+  justify-self: end;
+  gap: 1.5rem;
 }
 
 .book-btn {
@@ -531,3 +535,97 @@ nav {
     right: -50px;
   }
 }
+
+/* Snow Leopard Special Styling - Text Only */
+.navbar-left a[href="/snow-leopard"] {
+  color: #87CEEB; /* Sky blue color to represent snow leopard habitat */
+  font-weight: 500;
+  position: relative;
+  text-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Snow Leopard underline effect */
+.navbar-left a[href="/snow-leopard"]::before {
+  background: linear-gradient(135deg, #87CEEB, #B0E0E6, #FFFFFF);
+  box-shadow: 0 0 10px rgba(135, 206, 235, 0.6);
+}
+
+/* Snow Leopard hover effect */
+.navbar-left a[href="/snow-leopard"]:hover {
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  text-shadow: 0 0 15px rgba(135, 206, 235, 0.8);
+}
+
+.navbar-left a[href="/snow-leopard"]:hover::before {
+  width: 120%;
+  background: linear-gradient(135deg, #FFFFFF, #87CEEB, #B0E0E6);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+/* Active state for Snow Leopard */
+.navbar-left a[href="/snow-leopard"].active {
+  color: #FFFFFF;
+  text-shadow: 0 0 12px rgba(135, 206, 235, 0.6);
+}
+
+.navbar-left a[href="/snow-leopard"].active::before {
+  width: 100%;
+  background: linear-gradient(135deg, #FFFFFF, #87CEEB);
+}
+
+/* Alternative: More vibrant blue option */
+/*
+.navbar-left a[href="/snow-leopard"] {
+  color: #4A90E2;
+  text-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+  background: linear-gradient(45deg, rgba(74, 144, 226, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(74, 144, 226, 0.3);
+}
+*/
+
+/* Alternative: Icy white with blue glow option */
+/*
+.navbar-left a[href="/snow-leopard"] {
+  color: #F0F8FF;
+  text-shadow: 0 0 10px rgba(135, 206, 235, 0.6);
+  background: linear-gradient(45deg, rgba(240, 248, 255, 0.1), rgba(135, 206, 235, 0.1));
+  border: 1px solid rgba(240, 248, 255, 0.4);
+}
+*/
+
+/* Simple glow animation for extra attention */
+@keyframes snowLeopardGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(135, 206, 235, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(135, 206, 235, 0.6);
+  }
+}
+
+/* Optional: Add subtle pulsing text glow */
+.navbar-left a[href="/snow-leopard"] {
+  animation: snowLeopardGlow 3s ease-in-out infinite;
+}
+
+/* Remove animation on hover to prevent conflict */
+.navbar-left a[href="/snow-leopard"]:hover {
+  animation: none;
+}
+
+/* Responsive adjustments for Snow Leopard styling */
+@media (max-width: 968px) {
+  .navbar-left a[href="/snow-leopard"] {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-left a[href="/snow-leopard"] {
+    font-size: 0.75rem;
+  }
+}
+
+/* For scrolled navbar state - no changes needed for text-only styling */
