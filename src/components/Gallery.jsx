@@ -43,7 +43,7 @@ const Gallery = () => {
     "/images/landing-place-key-monastery.jpg",
     "/images/landing-place-chicham-bridge.jpg",
     "/images/gallery-scape-7.jpg",
-    "/images/gallery-scape-8 copy.JPG",
+    "/images/gallery-scape-8.JPG",
   ];
 
   const getImagesForSection = () => {
