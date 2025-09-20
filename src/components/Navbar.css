@@ -275,3 +275,259 @@ nav {
     width: 35px;
   }
 }
+
+
+
+/* FAQ Section Styles - Add this to your Navbar.css */
+
+.faq-section {
+  position: relative;
+  margin-right: 1.5rem;
+}
+
+.faq-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.faq-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+/* When navbar is scrolled, adjust FAQ button colors */
+.navbar.scrolled .faq-btn {
+  color: #e3e3e3;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar.scrolled .faq-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.faq-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* FAQ Dropdown - Dark Transparent with Blur Effect */
+.faq-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 400px;
+  max-height: 600px;
+  
+  /* Main dark transparent background with blur */
+  background: rgba(35, 35, 35, 0.466) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeInDropdown 0.3s ease forwards;
+}
+
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-header {
+  /* Dark transparent header */
+  background: rgba(44, 44, 44, 0.309) !important;
+  backdrop-filter: none; /* Remove conflicting blur */
+  -webkit-backdrop-filter: none;
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.faq-header h3 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.faq-list {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+  
+  /* Remove background to inherit parent transparency */
+  background: transparent !important;
+}
+
+/* Custom scrollbar for FAQ list */
+.faq-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.faq-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.faq-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+.faq-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.faq-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background-color 0.2s ease;
+  
+  /* Remove backdrop filter from individual items */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+}
+
+.faq-item:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.faq-answer {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.faq-footer {
+  /* Dark transparent footer */
+  background:  rgba(44, 44, 44, 0.309) !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.faq-contact-info {
+  margin-bottom: 0.8rem;
+}
+
+.faq-contact-info p {
+  margin: 0.2rem 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.faq-contact-info p:first-child {
+  font-weight: 600;
+  color: #fff;
+}
+
+.faq-contact-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.faq-contact-link:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced blur effect with dark backdrop for better text visibility */
+.faq-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .faq-dropdown {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-dropdown {
+    width: 300px;
+    max-height: 400px;
+  }
+  
+  .faq-header {
+    padding: 1rem;
+  }
+  
+  .faq-item {
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-dropdown {
+    width: 280px;
+    right: -50px;
+  }
+}

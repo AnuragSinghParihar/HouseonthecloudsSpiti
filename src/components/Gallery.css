@@ -19,8 +19,8 @@ body {
   overflow-x: hidden;
 }
 
-/* Fixed Navbar Background for Gallery Page */
-.navbar {
+/* Fixed Navbar Background for Gallery Page */ 
+/* .navbar {
   background: #4a1818 !important;
   backdrop-filter: blur(10px) !important;
   box-shadow: 
@@ -200,6 +200,10 @@ body {
 .sharp-item-11 { grid-column: 1/6; grid-row: 6/7; }
 .sharp-item-12 { grid-column: 1/8; grid-row: 7/9; }
 .sharp-item-13 { grid-column: 8/17; grid-row: 7/8; }
+.sharp-item-14 { 
+  grid-column: 8/17; 
+  grid-row: 8/9; 
+}
 
 .sharp-image-container {
   width: 100%;

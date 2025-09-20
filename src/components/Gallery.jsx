@@ -21,6 +21,7 @@ const Gallery = () => {
     "/images/gallery-hotel-6.jpg",
     "/images/landing-common-1.jpg",
     "/images/gallery-hotel-7.jpg",
+    "/images/gallery-hotel-9.JPG",
   ];
 
   // Wildlife images
@@ -41,10 +42,10 @@ const Gallery = () => {
     "/images/gallery-culture-1.JPG",
     "/images/gallery-scape-5.JPG",
     "/images/gallery-scape-6.JPG",
-    "/images/landing-place-key-monastery.JPG",
+    "/images/landing-place-key-monastery.jpg",
     "/images/landing-place-chicham-bridge.jpg",
     "/images/gallery-scape-7.jpg",
-    "/images/gallery-scape-8.JPG",
+    "/images/gallery-scape-8 copy.JPG",
   ];
 
   const getImagesForSection = () => {
@@ -65,7 +66,7 @@ const Gallery = () => {
 
   // Get sharp grid item class
   const getSharpItemClass = (index) => {
-    return `sharp-gallery-item sharp-item-${(index % 13) + 1}`;
+    return `sharp-gallery-item sharp-item-${index + 1}`;
   };
 
   const sections = [

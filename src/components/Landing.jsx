@@ -30,6 +30,25 @@ const Landing = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Add this new useEffect in your Landing.js file
+  useEffect(() => {
+    // Handle hash navigation when component loads
+    const hash = window.location.hash;
+    if (hash === "#contact") {
+      const timer = setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {

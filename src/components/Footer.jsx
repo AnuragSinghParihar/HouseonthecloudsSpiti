@@ -17,7 +17,12 @@ const Footer = () => {
           breathtaking views meet unparalleled hospitality at 13,615 feet above
           sea level.
         </p>
-        <a href="#contact" className="footer-cta-button">
+        <a
+          href="https://live.ipms247.com/booking/book-rooms-houseonthecloudsspiti"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-cta-button"
+        >
           Book Your Stay
           <div className="footer-cta-arrow">↗</div>
         </a>
