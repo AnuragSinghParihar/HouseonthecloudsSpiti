@@ -273,6 +273,7 @@ const Landing = () => {
         </div>
         <div className="image-text-overlay">
           <div className="text-content">
+            <h3 className="combined-text-title">KORA - Circle of Stories</h3>
             <p className="combined-text">
               House on the Clouds is not a hotel — it is an experience. Set
               amidst quiet landscapes, House on the Clouds invites you to pause
@@ -290,6 +291,7 @@ const Landing = () => {
       >
         <div className="image-text-overlay">
           <div className="text-content">
+            <h3 className="combined-text-title">Accomodation</h3>
             <p className="combined-text">
               Each room is thoughtfully designed, inspired by local Spiti
               architecture and crafted to provide comfort while honoring the
@@ -334,7 +336,9 @@ const Landing = () => {
       </section>
       <section className="experiences-section">
         <div className="experiences-heading">
-          <h2>Experience at House on the Clouds</h2>
+          <h2>Experience</h2>
+          <h2>at</h2>
+          <h2>House on the Clouds</h2>
         </div>
       </section>
       {/* Background Image Section with Text Overlay */}

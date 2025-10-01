@@ -143,22 +143,28 @@ font-family: 'Lato', sans-serif;
 .footer-right {
   text-align: right;
   font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
 }
 
 .footer-link {
-  display: inline-block;
   color: white;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 400;
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
-  transition: all 0.3s ease;
-  position: relative;
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.8;
+  transition: all 0.4s ease;
 }
 
-.footer-link::after {
+.footer-link:hover {
+  opacity: 1;
+  transform: translateX(-3px);
+  color: rgba(130, 187, 247, 0.909);
+}
+
+/* .footer-link::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -176,7 +182,7 @@ font-family: 'Lato', sans-serif;
 
 .footer-link:hover::after {
   width: 100%;
-}
+} */
 
 .footer-instagram-section {
   margin-top: 2rem;

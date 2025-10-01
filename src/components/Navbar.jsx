@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Sparkles } from "lucide-react";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -82,21 +83,17 @@ const Navbar = () => {
     <nav>
       <section className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="navbar-left">
-          <Link to="/journey" className="link-btn">
-            The Journey
-          </Link>
-          <Link to="/accommodation">Accommodation</Link>
-          <Link to="/snow-leopard">Snow Leopard</Link>
-          <Link to="/gallery">Gallery</Link>
-          <Link to="/contact">Contact</Link>
-        </div>
-
-        <div className="navbar-center">
           <div className="logo-box">
-            <Link to="/">
-              <img src="/images/logo.jpg" alt="Logo" />
+            <Link to="/" aria-label="Home">
+              <img src="/images/logo.jpg" alt="House on the Clouds" />
             </Link>
           </div>
+          <Link to="/journey">The Journey</Link>
+          <Link to="/accommodation">Accommodation</Link>
+          <Link to="/snow-leopard">
+            <Sparkles size={18} strokeWidth={1.5} /> Snow Leopard Expedition
+          </Link>
+          <Link to="/gallery">Gallery</Link>
         </div>
 
         <div className="navbar-right">

@@ -58,13 +58,13 @@ const Footer = () => {
         <div className="footer-center"></div>
         <div className="footer-right">
           <Link to="/journey" className="footer-link">
-            The Journey,
+            The Journey
           </Link>
           <Link to="/accommodation" className="footer-link">
-            Accommodation,
+            Accommodation
           </Link>
           <Link to="/gallery" className="footer-link">
-            Gallery,
+            Gallery
           </Link>
           <Link to="/contact" className="footer-link">
             Contact
