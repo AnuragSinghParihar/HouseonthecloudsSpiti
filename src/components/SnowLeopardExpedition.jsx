@@ -195,7 +195,8 @@ const SnowLeopardExpedition = () => {
                   onClick={() => setSelectedDay(item.day)}
                 >
                   <span className="day-number">Day {item.day}</span>
-                  <span className="day-date">{item.date}</span>
+                  {/* <span className="day-date">{item.date}</span> */}
+                  <span className="day-date">{item.title}</span>
                 </div>
               ))}
             </div>
@@ -209,7 +210,8 @@ const SnowLeopardExpedition = () => {
                       <img src={day.image} alt={day.title} />
                       <div className="image-overlay">
                         <span>
-                          Day {day.day}: {day.date}
+                          Day {day.day}
+                          {/* : {day.date} */}
                         </span>
                       </div>
                     </div>
