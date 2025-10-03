@@ -19,7 +19,8 @@ body {
   height: 100vh;
   overflow: hidden;
   display: flex;
-  align-items: center;
+  align-items:flex-end;
+  padding-bottom: 4rem;
   justify-content: center;
 }
 
@@ -72,8 +73,8 @@ body {
 }
 
 .heading-three {
-  font-family: 'Lato', sans-serif;
-  font-size: 4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -85,12 +86,12 @@ body {
   grid-template-columns: 1fr 600px;
   min-height: 80vh;
   margin: 6rem 0;
-  gap: 4rem;
+  gap: 6rem;
   align-items: center;
-  max-width: 1400px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 2rem;
+  padding: 0 4rem 0 2rem;
 }
 
 .landing-reel-container {
@@ -134,8 +135,8 @@ body {
 }
 
 .landing-reel-video {
-  width: 600px;
-  height: 700px;
+  width: 40vw;
+  height: 85vh;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
@@ -399,7 +400,7 @@ body {
   font-weight: 600;
   font-style: italic;
   font-size: 4rem;
-  color: #5a7a8c;
+  color: #333;
   position: relative;
   display: inline-block;
   letter-spacing: 3px;
@@ -412,7 +413,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #5a7a8c, transparent);
+  background: linear-gradient(90deg, transparent, #1e1e1e, transparent);
 }
 
 /* Background Text Section - Add your image here */

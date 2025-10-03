@@ -64,7 +64,7 @@
 }
 
 .footer-main-title {
-font-family: 'Lato', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 400;
   margin-bottom: 0.5rem;

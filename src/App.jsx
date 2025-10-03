@@ -10,6 +10,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./App.css";
+import "normalize.css";
 
 function App() {
   return (

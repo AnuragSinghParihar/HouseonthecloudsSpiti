@@ -8,73 +8,93 @@ const SnowLeopardExpedition = () => {
   const itinerary = [
     {
       day: 1,
-      date: "FEB 14",
-      title: "CHANDIGARH - THANEDAR",
-      altitude: "2350 M",
-      distance: "195 kms / 6 hrs",
+      date: "TBA",
+      title: "CHANDIGARH TO RAMPUR BUSHAHR",
+      accommodation: "Heritage Hotel, Rampur Bushahr",
+      distance: "Travel day",
       description:
-        "Reach Chandigarh Airport / Railway Station (morning Shatabdi from Delhi) and drive via Shimla & Narkanda to reach the apple orchard draped mountainside of Thanedar. Evening at leisure besides a bonfire in the Banjara Orchard Retreat.",
-      image: "chandigarh-thanedar.jpg",
+        "Begin your mountain adventure with a scenic drive through the Shivalik hills, leaving the plains behind for the majestic Himalayas. Settle into your accommodation at Rampur Bushahr, explore the ancient Padam Palace and prepare for the wilderness ahead.",
+      image: "/images/expedition_5.jpg",
     },
     {
       day: 2,
-      date: "FEB 15",
-      title: "THANEDAR - SANGLA",
-      altitude: "2700 M",
-      distance: "156 kms / 6 hrs",
+      date: "TBA",
+      title: "RAMPUR TO KAZA",
+      accommodation: "Local Homestay Experience in Kaza",
+      distance: "Journey through Kinnaur",
       description:
-        "Post breakfast depart for Sangla Valley, Reach the Banjara Camp & Retreat in Sangla Valley by late afternoon and enjoy the evening by a bonfire. Night stay in the Banjara Retreat.",
-      image: "thanedar-sangla.jpg",
+        "Journey through the dramatic landscapes of Kinnaur region, witnessing the stunning transformation from lush green valleys to the stark, beautiful desert mountains of Spiti. Experience authentic Spitian hospitality at a traditional Kaza homestay while acclimatizing to high altitude.",
+      image: "/images/expedition_2.jpg",
     },
     {
       day: 3,
-      date: "FEB 16",
-      title: "SANGLA - KIBBER",
-      altitude: "4200 M",
-      distance: "180 kms / 8 hrs",
+      date: "TBA",
+      title: "ARRIVAL AT CHICHAM",
+      accommodation: "House on the Clouds, Chicham (13,500 feet)",
+      distance: "Via Tabo & Ki Monastery",
       description:
-        "Early morning drive to Spiti Valley via Karcham, Pooh, and Nako. Cross the treacherous roads to reach Kibber village - one of the highest motorable villages in the world. Evening acclimatization walk.",
-      image: "sangla-kibber.jpg",
+        "Visit the iconic 1000-year-old Tabo Monastery and legendary Ki Monastery before crossing Asia's highest suspension bridge. Check into your expedition base - House on the Clouds in Chicham Village at 13,500 feet, where sustainable luxury meets wilderness adventure.",
+      image: "/images/expedition_1.jpg",
     },
     {
       day: 4,
-      date: "FEB 17",
+      date: "TBA",
       title: "FIRST TRACKING DAY",
-      altitude: "4200 M",
-      distance: "Trek / Full day",
+      accommodation: "House on the Clouds Base",
+      distance: "Full day tracking",
       description:
-        "Begin our first snow leopard tracking expedition. Early morning departure with local guides and wildlife experts. Learn to identify pugmarks, scats, and territorial markings. Overnight camping under the stars.",
-      image: "first-tracking.jpg",
+        "Begin your quest for the 'Grey Ghost of the Himalayas' with a pre-dawn trek into pristine snow-covered wilderness guided by local experts. Return to the eco-friendly comfort of House on the Clouds after scanning ridges for the world's most elusive big cat.",
+      image: "/images/expedition_3.jpg",
     },
     {
       day: 5,
-      date: "FEB 18",
-      title: "DEEP VALLEY EXPLORATION",
-      altitude: "4500 M",
-      distance: "Trek / Full day",
+      date: "TBA",
+      title: "SECOND DAY TRACKING",
+      accommodation: "House on the Clouds",
+      distance: "Extended wilderness tracking",
       description:
-        "Venture deeper into snow leopard territory. Visit Key Monastery and interact with local Buddhist monks. Advanced tracking techniques and wildlife photography sessions. Traditional Spitian dinner.",
-      image: "deep-valley.jpg",
+        "Venture deeper into snow leopard territory following fresh tracks and local intelligence from your experienced spotters. Evening warmth at House on the Clouds - share discoveries over traditional Spitian dinner while your hosts prepare tomorrow's expedition.",
+      image: "/images/expedition_4.jpg",
     },
     {
       day: 6,
-      date: "FEB 19",
-      title: "SUMMIT TRACKING",
-      altitude: "4800 M",
-      distance: "Trek / Full day",
+      date: "TBA",
+      title: "EXTENDED TRACKING",
+      accommodation: "House on the Clouds",
+      distance: "Pre-dawn to dusk",
       description:
-        "Our best chance for snow leopard sighting. High altitude tracking with professional wildlife photographers. Panoramic views of the Trans-Himalayas. Celebration dinner if successful sighting.",
-      image: "summit-tracking.jpg",
+        "Maximize your sighting opportunities with extended field time during peak activity hours, from pre-dawn to dusk. Celebrate at House on the Clouds under pristine Himalayan stars - your mountain sanctuary offering solar-powered comfort at 14,000 feet.",
+      image: "/images/gallery-animal-4.JPG",
     },
     {
       day: 7,
-      date: "FEB 20",
-      title: "RETURN TO MANALI",
-      altitude: "2050 M",
-      distance: "200 kms / 10 hrs",
+      date: "TBA",
+      title: "FINAL EXPEDITION DAY",
+      accommodation: "House on the Clouds",
+      distance: "Tracking or cultural immersion",
       description:
-        "Final tracking session at dawn. Pack equipment and begin journey back to Manali via Kaza and Rohtang Pass. Evening arrival and overnight stay at heritage hotel.",
-      image: "return-manali.jpg",
+        "Either pursue your final intensive tracking opportunity or enjoy cultural experiences with Chicham villagers if sightings are successful. Last night at House on the Clouds - participate in traditional cooking and connect deeply with your mountain hosts.",
+      image: "/images/gallery-animal-1.JPG",
+    },
+    {
+      day: 8,
+      date: "TBA",
+      title: "FAREWELL CHICHAM TO RAMPUR",
+      accommodation: "Heritage Hotel, Rampur Bushahr",
+      distance: "Return journey",
+      description:
+        "Bid emotional farewell to House on the Clouds and the resilient people of Chicham as you descend through changing climatic zones. Comfortable night at Heritage Hotel, Rampur Bushahr to process your transformative wilderness experiences.",
+      image: "/images/gallery-hotel-1.jpg",
+    },
+    {
+      day: 9,
+      date: "TBA",
+      title: "RAMPUR TO CHANDIGARH",
+      accommodation: "Departure",
+      distance: "Final mountain drive",
+      description:
+        "Complete your transformative Himalayan journey with a final mountain drive, carrying unforgettable memories from House on the Clouds. Return to Chandigarh enriched by one of the world's most extraordinary wildlife experiences centered around sustainable mountain hospitality.",
+      image: "/images/gallery-scape-5.JPG",
     },
   ];
 
@@ -98,7 +118,7 @@ const SnowLeopardExpedition = () => {
                 <Calendar className="icon" />
                 <div>
                   <span className="label">Duration</span>
-                  <span className="value">12 nights 13 days</span>
+                  <span className="value">9 Days</span>
                 </div>
               </div>
               <div className="detail-item">
@@ -135,7 +155,10 @@ const SnowLeopardExpedition = () => {
               environment of the Himalayas. This expedition takes you into their
               domain, where temperatures drop to -20°C and the air is thin, but
               the reward of witnessing these incredible creatures in their
-              natural habitat is unmatched.
+              natural habitat is unmatched. Your base will be House on the
+              Clouds in Chicham Village at 13,500 feet - a unique eco-friendly
+              retreat that combines sustainable luxury with authentic wilderness
+              adventure.
             </p>
 
             <div className="facts-grid">
@@ -144,7 +167,7 @@ const SnowLeopardExpedition = () => {
                 <p>Population in the wild</p>
               </div>
               <div className="fact-item">
-                <h3>3,000-5,500m</h3>
+                <h3>~9,800–18,000 ft</h3>
                 <p>Altitude range</p>
               </div>
               <div className="fact-item">
@@ -183,7 +206,7 @@ const SnowLeopardExpedition = () => {
                 .map((day) => (
                   <div key={day.day} className="day-detail">
                     <div className="day-image-placeholder">
-                      <img src={`/api/placeholder/800/400`} alt={day.title} />
+                      <img src={day.image} alt={day.title} />
                       <div className="image-overlay">
                         <span>
                           Day {day.day}: {day.date}
@@ -192,11 +215,17 @@ const SnowLeopardExpedition = () => {
                     </div>
 
                     <div className="day-info">
-                      <h3>
-                        {day.title} ({day.altitude})
-                      </h3>
+                      <h3>{day.title}</h3>
                       <div className="day-stats">
-                        <span>{day.distance}</span>
+                        <span>
+                          <strong>Stay:</strong> {day.accommodation}
+                        </span>
+                        {day.distance && (
+                          <>
+                            <span> • </span>
+                            <span>{day.distance}</span>
+                          </>
+                        )}
                       </div>
                       <p>{day.description}</p>
                     </div>
@@ -256,7 +285,7 @@ const SnowLeopardExpedition = () => {
             <h2>Ready for the Adventure?</h2>
             <p>
               Join us for this once-in-a-lifetime snow leopard tracking
-              expedition
+              expedition based at House on the Clouds
             </p>
 
             <div className="contact-info">
@@ -270,7 +299,7 @@ const SnowLeopardExpedition = () => {
               </div>
               <div className="contact-item">
                 <h3>Duration</h3>
-                <p>12 nights 13 days</p>
+                <p>9 Days</p>
               </div>
             </div>
 

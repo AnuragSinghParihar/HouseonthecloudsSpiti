@@ -31,8 +31,8 @@ const Gallery = () => {
     "/images/gallery-animal-5.JPG",
   ];
 
-  // Waterscape images
-  const waterschapeImages = [
+  // landscape images
+  const landscapeImages = [
     "/images/gallery-scape-1.JPG",
     "/images/gallery-scape-2.JPG",
     "/images/gallery-scape-3.JPG",
@@ -52,8 +52,8 @@ const Gallery = () => {
         return wildlifeImages;
       case "culture":
         return [];
-      case "waterscapes":
-        return waterschapeImages;
+      case "landscapes":
+        return landscapeImages;
       case "hotel":
       default:
         return hotelImages;
@@ -71,7 +71,7 @@ const Gallery = () => {
     { id: "hotel", name: "HOTEL", icon: "/images/hotel.png" },
     { id: "wildlife", name: "WILD ANIMALS", icon: "/images/israeli.png" },
     { id: "culture", name: "CULTURE", icon: "/images/rangoli.png" },
-    { id: "waterscapes", name: "WATERSCAPES", icon: "/images/river.png" },
+    { id: "landscapes", name: "LANDSCAPES", icon: "/images/river.png" },
   ];
 
   // Wildlife content data
@@ -347,14 +347,14 @@ const Gallery = () => {
             </div>
           )}
 
-          {activeSection === "waterscapes" && (
+          {activeSection === "landscapes" && (
             <div className="sharp-edge-gallery">
-              {waterschapeImages.map((image, index) => (
+              {landscapeImages.map((image, index) => (
                 <div key={index} className={getSharpItemClass(index)}>
                   <div className="sharp-image-container">
                     <img
                       src={image}
-                      alt={`Breathtaking waterscape ${index + 1}`}
+                      alt={`Breathtaking landscape ${index + 1}`}
                       className="sharp-gallery-image"
                       loading="lazy"
                       onError={(e) => {

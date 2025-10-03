@@ -18,17 +18,21 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
-  padding: 1.5rem 4rem;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(0.8rem, 1.5vh, 1.5rem) clamp(1.5rem, 4vw, 4rem);
   background: rgba(35, 35, 35, 0.255);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   transition: all 0.4s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 70px;
+  height: auto;
 }
 
 .navbar.scrolled {
   background: rgba(67, 46, 93, 0.178);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -37,21 +41,25 @@ nav {
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
-  justify-self: start;
+  gap: clamp(1.2rem, 2.5vw, 2.5rem);
+  flex-wrap: nowrap;
+  flex: 1;
+  min-width: 0;
 }
 
 .navbar-left a {
   text-decoration: none;
   color: white;
   font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
   font-weight: 400;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.3s ease;
   position: relative;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .navbar-left a::before {
@@ -88,11 +96,14 @@ nav {
 }
 
 .navbar-left .logo-box {
-  margin-right: 1rem;
+  margin-right: clamp(0.5rem, 1vw, 1rem);
+  flex-shrink: 0;
 }
+
 .navbar-left .logo-box a::before {
   display: none;
 }
+
 .logo-box {
   display: flex;
   align-items: center;
@@ -101,8 +112,11 @@ nav {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 55px;
+  height: 55px;
 }
 
 .logo-box:hover {
@@ -113,41 +127,50 @@ nav {
 
 .logo-box a {
   display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-box img {
-  height: 45px;
   width: 45px;
+  height: 45px;
   object-fit: cover;
   border-radius: 50%;
   transition: all 0.3s ease;
+  display: block;
 }
 
 /* Right Book Button */
 .navbar-right {
   display: flex;
   align-items: center;
-  justify-self: end;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  flex-shrink: 0;
 }
 
 .book-btn {
   text-decoration: none;
   color: white;
   font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 1rem 2.5rem;
+  padding: clamp(0.7rem, 1vh, 1rem) clamp(1.5rem, 2.5vw, 2.5rem);
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .book-btn::before {
@@ -191,118 +214,37 @@ nav {
   animation: slideDown 0.8s ease-out;
 }
 
-/* Enhanced text visibility for travel content */
+/* Enhanced text visibility */
 .navbar-left a,
 .book-btn {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .navbar {
-    padding: 1.2rem 3rem;
-  }
-  
-  .navbar-left {
-    gap: 2.5rem;
-  }
-}
-
-@media (max-width: 968px) {
-  .navbar {
-    padding: 1rem 2rem;
-  }
-  
-  .navbar-left {
-    gap: 2rem;
-  }
-  
-  .navbar-left a {
-    font-size: 0.85rem;
-  }
-  
-  .book-btn {
-    font-size: 0.8rem;
-    padding: 0.8rem 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 1rem 1.5rem;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .navbar-left {
-    gap: 1.5rem;
-  }
-  
-  .navbar-left a {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-  }
-  
-  .book-btn {
-    font-size: 0.75rem;
-    padding: 0.7rem 1.5rem;
-  }
-  
-  .logo-box img {
-    height: 40px;
-    width: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0.8rem 1rem;
-  }
-  
-  .navbar-left {
-    gap: 1rem;
-  }
-  
-  .navbar-left a {
-    font-size: 0.7rem;
-  }
-  
-  .book-btn {
-    font-size: 0.7rem;
-    padding: 0.6rem 1.2rem;
-  }
-  
-  .logo-box img {
-    height: 35px;
-    width: 35px;
-  }
-}
-
-
-
-/* FAQ Section Styles - Add this to your Navbar.css */
-
+/* FAQ Section Styles */
 .faq-section {
   position: relative;
-  margin-right: 1.5rem;
+  margin-right: 0;
 }
 
 .faq-btn {
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.3);
   color: white;
-  padding: 0.7rem 1.2rem;
+  padding: clamp(0.6rem, 0.7vh, 0.7rem) clamp(1rem, 1.2vw, 1.2rem);
   border-radius: 5px;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+  line-height: 1.4;
 }
 
 .faq-btn:hover {
@@ -311,7 +253,6 @@ nav {
   transform: translateY(-1px);
 }
 
-/* When navbar is scrolled, adjust FAQ button colors */
 .navbar.scrolled .faq-btn {
   color: #e3e3e3;
   background: rgba(255, 255, 255, 0.1);
@@ -332,19 +273,17 @@ nav {
   transform: rotate(180deg);
 }
 
-/* FAQ Dropdown - Dark Transparent with Blur Effect */
+/* FAQ Dropdown */
 .faq-dropdown {
   position: absolute;
   top: calc(100% + 10px);
   right: 0;
-  width: 400px;
-  max-height: 600px;
-  
-  /* Main dark transparent background with blur */
+  width: clamp(280px, 90vw, 400px);
+  max-width: 400px;
+  max-height: min(600px, 80vh);
   background: rgba(35, 35, 35, 0.466) !important;
   backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
-  
   border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   z-index: 1000;
@@ -365,33 +304,30 @@ nav {
 }
 
 .faq-header {
-  /* Dark transparent header */
   background: rgba(44, 44, 44, 0.309) !important;
-  backdrop-filter: none; /* Remove conflicting blur */
-  -webkit-backdrop-filter: none;
   color: white;
-  padding: 1.2rem 1.5rem;
+  padding: clamp(0.8rem, 1.2vh, 1.2rem) clamp(1rem, 1.5vw, 1.5rem);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .faq-header h3 {
   margin: 0;
   font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
   font-weight: 600;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
 }
 
 .faq-list {
-  max-height: 350px;
+  max-height: min(350px, 60vh);
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 0.5rem 0;
-  
-  /* Remove background to inherit parent transparency */
   background: transparent !important;
 }
 
-/* Custom scrollbar for FAQ list */
+/* Custom scrollbar */
 .faq-list::-webkit-scrollbar {
   width: 6px;
 }
@@ -410,13 +346,9 @@ nav {
 }
 
 .faq-item {
-  padding: 1rem 1.5rem;
+  padding: clamp(0.8rem, 1vh, 1rem) clamp(1rem, 1.5vw, 1.5rem);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   transition: background-color 0.2s ease;
-  
-  /* Remove backdrop filter from individual items */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   background: transparent;
 }
 
@@ -430,30 +362,29 @@ nav {
 
 .faq-question {
   margin: 0 0 0.5rem 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.8rem, 0.85vw, 0.9rem);
   font-weight: 600;
   color: #fff;
-  line-height: 1.3;
+  line-height: 1.4;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  word-wrap: break-word;
 }
 
 .faq-answer {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.5;
   font-weight: 300;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  word-wrap: break-word;
 }
 
 .faq-footer {
-  /* Dark transparent footer */
-  background:  rgba(44, 44, 44, 0.309) !important;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  padding: 1rem 1.5rem;
+  background: rgba(44, 44, 44, 0.309) !important;
+  padding: clamp(0.8rem, 1vh, 1rem) clamp(1rem, 1.5vw, 1.5rem);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
 }
@@ -464,10 +395,12 @@ nav {
 
 .faq-contact-info p {
   margin: 0.2rem 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.7rem, 0.75vw, 0.8rem);
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
 .faq-contact-info p:first-child {
@@ -478,11 +411,12 @@ nav {
 .faq-contact-link {
   color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
   font-weight: 500;
   transition: color 0.3s ease;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
 }
 
 .faq-contact-link:hover {
@@ -491,7 +425,6 @@ nav {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
-/* Enhanced blur effect with dark backdrop for better text visibility */
 .faq-dropdown::before {
   content: '';
   position: absolute;
@@ -506,88 +439,34 @@ nav {
   z-index: -1;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .faq-dropdown {
-    width: 350px;
-  }
-}
-
-@media (max-width: 768px) {
-  .faq-dropdown {
-    width: 300px;
-    max-height: 400px;
-  }
-  
-  .faq-header {
-    padding: 1rem;
-  }
-  
-  .faq-item {
-    padding: 0.8rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .faq-dropdown {
-    width: 280px;
-    right: -50px;
-  }
-}
-
-/* Fixed Sparkles icon styling - No extra space on hover */
+/* Sparkles icon styling */
 .navbar-left a[href="/snow-leopard"] {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  position: relative;
+  gap: 0.5rem;
 }
 
 .navbar-left a[href="/snow-leopard"] svg {
   width: 18px;
   height: 18px;
-  margin-left: 8px;
   color: #ffd700;
   filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
   transition: all 0.3s ease;
   stroke-width: 1.5;
-  flex-shrink: 0; /* Prevent shrinking */
-  transform-origin: center; /* Keep transform centered */
+  flex-shrink: 0;
 }
 
-/* Hover effect - contained within original bounds */
 .navbar-left a[href="/snow-leopard"]:hover svg {
   color: #ffed4e;
   filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
   transform: rotate(15deg) scale(1.05);
-  /* No layout shift because transform doesn't affect layout */
 }
 
-/* Alternative: If you still get layout shift, use this instead */
-/*
-.navbar-left a[href="/snow-leopard"] svg {
-  position: absolute;
-  right: -26px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 0;
-}
-
-.navbar-left a[href="/snow-leopard"] {
-  padding-right: 30px;
-}
-
-.navbar-left a[href="/snow-leopard"]:hover svg {
-  transform: translateY(-50%) rotate(15deg) scale(1.05);
-}
-*/
-
-/* Active state */
 .navbar-left a[href="/snow-leopard"].active svg {
   color: #ffed4e;
   filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
 }
 
-/* For scrolled navbar */
 .navbar.scrolled .navbar-left a[href="/snow-leopard"] svg {
   color: #ffd700;
   filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5));
@@ -597,19 +476,152 @@ nav {
   filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .navbar {
+    padding: clamp(0.8rem, 1.2vh, 1.2rem) clamp(1.5rem, 3vw, 3rem);
+  }
+  
+  .navbar-left {
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+}
+
 @media (max-width: 968px) {
-  .navbar-left a[href="/snow-leopard"] svg {
-    width: 16px;
-    height: 16px;
-    margin-left: 6px;
+  .navbar {
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+  
+  .navbar-left {
+    gap: clamp(0.8rem, 1.5vw, 1.5rem);
+  }
+  
+  .navbar-left a {
+    font-size: 0.8rem;
+  }
+  
+  .book-btn {
+    font-size: 0.75rem;
+    padding: 0.65rem 1.5rem;
+  }
+  
+  .faq-btn {
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
   }
 }
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+    min-height: 60px;
+  }
+  
+  .navbar-left {
+    gap: 1rem;
+  }
+  
+  .navbar-left a {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .book-btn {
+    font-size: 0.7rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .faq-btn {
+    font-size: 0.7rem;
+    padding: 0.55rem 0.9rem;
+  }
+  
+  .logo-box {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .logo-box img {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .faq-dropdown {
+    width: clamp(260px, 85vw, 300px);
+    max-height: 70vh;
+  }
+  
+  .navbar-left a[href="/snow-leopard"] svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.7rem 1rem;
+    min-height: 55px;
+    gap: 0.5rem;
+  }
+  
+  .navbar-left {
+    gap: 0.6rem;
+  }
+  
+  .navbar-left a {
+    font-size: 0.65rem;
+  }
+  
+  .book-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .faq-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.8rem;
+    gap: 0.3rem;
+  }
+  
+  .logo-box {
+    width: 42px;
+    height: 42px;
+    padding: 0.3rem;
+  }
+  
+  .logo-box img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .faq-dropdown {
+    width: clamp(240px, 90vw, 280px);
+    right: -20px;
+  }
+  
   .navbar-left a[href="/snow-leopard"] svg {
     width: 14px;
     height: 14px;
-    margin-left: 4px;
+  }
+}
+
+/* Windows-specific font rendering fix */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .navbar-left a,
+  .book-btn,
+  .faq-btn,
+  .faq-question,
+  .faq-answer {
+    font-weight: 500;
+  }
+}
+
+/* Firefox specific adjustments */
+@-moz-document url-prefix() {
+  .navbar-left a,
+  .book-btn,
+  .faq-btn {
+    letter-spacing: 0.06em;
   }
 }
