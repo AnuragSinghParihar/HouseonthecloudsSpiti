@@ -13,9 +13,8 @@ const Footer = () => {
           at House on the Clouds
         </h1>
         <p className="footer-hero-subtitle">
-          Escape to one of the world's highest boutique stays, where
-          breathtaking views meet unparalleled hospitality at 13,615 feet above
-          sea level.
+          Escape to one of the world's highest boutique stay, where breathtaking
+          views meet unparalleled hospitality at 13,615 feet above sea level.
         </p>
         <a
           href="https://live.ipms247.com/booking/book-rooms-houseonthecloudsspiti"

@@ -214,7 +214,7 @@ const Landing = () => {
       </div>
       <section className="before-hero">
         <h1 className="heading-main-two">
-          One of the World's Highest Boutique Stays
+          One of the World's Highest Boutique Stay
           <br /> <i>Perched at 13,615 ft in Chicham, Spiti Valley</i>
         </h1>
       </section>
