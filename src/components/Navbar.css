@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Lato:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(0.8rem, 1.5vh, 1.5rem) clamp(1.5rem, 4vw, 4rem);
+  background: rgba(35, 35, 35, 0.255);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 70px;
+  height: auto;
+}
+
+.navbar.scrolled {
+  background: rgba(67, 46, 93, 0.178);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Left Navigation Links */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2.5vw, 2.5rem);
+  flex-wrap: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar-left a {
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.navbar-left a::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.navbar-left a:hover::before {
+  width: 100%;
+}
+
+.navbar-left a:hover {
+  color: #f0f0f0;
+  transform: translateY(-1px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.navbar-left a.active {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.navbar-left a.active::before {
+  width: 100%;
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+}
+
+.navbar-left .logo-box {
+  margin-right: clamp(0.5rem, 1vw, 1rem);
+  flex-shrink: 0;
+}
+
+.navbar-left .logo-box a::before {
+  display: none;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 55px;
+  height: 55px;
+}
+
+.logo-box:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.logo-box a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-box img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Right Book Button */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  flex-shrink: 0;
+}
+
+.book-btn {
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: clamp(0.7rem, 1vh, 1rem) clamp(1.5rem, 2.5vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.book-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.book-btn:hover::before {
+  left: 0;
+}
+
+.book-btn:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Animation for navbar entrance */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar {
+  animation: slideDown 0.8s ease-out;
+}
+
+/* Enhanced text visibility */
+.navbar-left a,
+.book-btn {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* FAQ Section Styles */
+.faq-section {
+  position: relative;
+  margin-right: 0;
+}
+
+.faq-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: clamp(0.6rem, 0.7vh, 0.7rem) clamp(1rem, 1.2vw, 1.2rem);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.85vw, 0.9rem);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.faq-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.navbar.scrolled .faq-btn {
+  color: #e3e3e3;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar.scrolled .faq-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.faq-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* FAQ Dropdown */
+.faq-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: clamp(280px, 90vw, 400px);
+  max-width: 400px;
+  max-height: min(600px, 80vh);
+  background: rgba(35, 35, 35, 0.466) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeInDropdown 0.3s ease forwards;
+}
+
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq-header {
+  background: rgba(44, 44, 44, 0.309) !important;
+  color: white;
+  padding: clamp(0.8rem, 1.2vh, 1.2rem) clamp(1rem, 1.5vw, 1.5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.faq-header h3 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
+}
+
+.faq-list {
+  max-height: min(350px, 60vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.5rem 0;
+  background: transparent !important;
+}
+
+/* Custom scrollbar */
+.faq-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.faq-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.faq-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+.faq-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.faq-item {
+  padding: clamp(0.8rem, 1vh, 1rem) clamp(1rem, 1.5vw, 1.5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background-color 0.2s ease;
+  background: transparent;
+}
+
+.faq-item:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.8rem, 0.85vw, 0.9rem);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  word-wrap: break-word;
+}
+
+.faq-answer {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-weight: 300;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  word-wrap: break-word;
+}
+
+.faq-footer {
+  background: rgba(44, 44, 44, 0.309) !important;
+  padding: clamp(0.8rem, 1vh, 1rem) clamp(1rem, 1.5vw, 1.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.faq-contact-info {
+  margin-bottom: 0.8rem;
+}
+
+.faq-contact-info p {
+  margin: 0.2rem 0;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.7rem, 0.75vw, 0.8rem);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.faq-contact-info p:first-child {
+  font-weight: 600;
+  color: #fff;
+}
+
+.faq-contact-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.4;
+}
+
+.faq-contact-link:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.faq-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+/* Sparkles icon styling */
+.navbar-left a[href="/snow-leopard"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-left a[href="/snow-leopard"] svg {
+  width: 18px;
+  height: 18px;
+  color: #ffd700;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  transition: all 0.3s ease;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+.navbar-left a[href="/snow-leopard"]:hover svg {
+  color: #ffed4e;
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
+  transform: rotate(15deg) scale(1.05);
+}
+
+.navbar-left a[href="/snow-leopard"].active svg {
+  color: #ffed4e;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}
+
+.navbar.scrolled .navbar-left a[href="/snow-leopard"] svg {
+  color: #ffd700;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.5));
+}
+
+.navbar.scrolled .navbar-left a[href="/snow-leopard"]:hover svg {
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .navbar {
+    padding: clamp(0.8rem, 1.2vh, 1.2rem) clamp(1.5rem, 3vw, 3rem);
+  }
+  
+  .navbar-left {
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+}
+
+@media (max-width: 968px) {
+  .navbar {
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+  
+  .navbar-left {
+    gap: clamp(0.8rem, 1.5vw, 1.5rem);
+  }
+  
+  .navbar-left a {
+    font-size: 0.8rem;
+  }
+  
+  .book-btn {
+    font-size: 0.75rem;
+    padding: 0.65rem 1.5rem;
+  }
+  
+  .faq-btn {
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+    min-height: 60px;
+  }
+  
+  .navbar-left {
+    gap: 1rem;
+  }
+  
+  .navbar-left a {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .book-btn {
+    font-size: 0.7rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .faq-btn {
+    font-size: 0.7rem;
+    padding: 0.55rem 0.9rem;
+  }
+  
+  .logo-box {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .logo-box img {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .faq-dropdown {
+    width: clamp(260px, 85vw, 300px);
+    max-height: 70vh;
+  }
+  
+  .navbar-left a[href="/snow-leopard"] svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.7rem 1rem;
+    min-height: 55px;
+    gap: 0.5rem;
+  }
+  
+  .navbar-left {
+    gap: 0.6rem;
+  }
+  
+  .navbar-left a {
+    font-size: 0.65rem;
+  }
+  
+  .book-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .faq-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.8rem;
+    gap: 0.3rem;
+  }
+  
+  .logo-box {
+    width: 42px;
+    height: 42px;
+    padding: 0.3rem;
+  }
+  
+  .logo-box img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .faq-dropdown {
+    width: clamp(240px, 90vw, 280px);
+    right: -20px;
+  }
+  
+  .navbar-left a[href="/snow-leopard"] svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Windows-specific font rendering fix */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .navbar-left a,
+  .book-btn,
+  .faq-btn,
+  .faq-question,
+  .faq-answer {
+    font-weight: 500;
+  }
+}
+
+/* Firefox specific adjustments */
+@-moz-document url-prefix() {
+  .navbar-left a,
+  .book-btn,
+  .faq-btn {
+    letter-spacing: 0.06em;
+  }
+}
