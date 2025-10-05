@@ -275,9 +275,12 @@ const Landing = () => {
           <div className="text-content">
             <h3 className="combined-text-title">KORA - Circle of Stories</h3>
             <p className="combined-text">
-              House on the Clouds is not a hotel — it is an experience. Set
-              amidst quiet landscapes, House on the Clouds invites you to pause
-              and reconnect with nature's pristine beauty.
+              Kora is the signature lounge of House on the Clouds — a space
+              where guests share stories with fellow travellers, weaving moments
+              of connection and warmth. <br />
+              <br /> House on the Clouds is not a hotel — it is an experience.
+              Set amidst quiet landscapes, it invites you to pause and reconnect
+              with nature’s pristine beauty.
             </p>
           </div>
         </div>
