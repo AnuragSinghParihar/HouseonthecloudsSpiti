@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Accommodation.css";
+import ScrollReveal from "./ScrollReveal";
 
 const Accommodation = () => {
   const [expandedAccordion, setExpandedAccordion] = useState(0);
@@ -13,7 +14,7 @@ const Accommodation = () => {
       {/* Hero Section */}
       <section className="accom-hero-section">
         <div className="accom-hero-container">
-          <div className="accom-hero-content">
+          <ScrollReveal as="div" animation="up" className="accom-hero-content">
             <div className="accom-hero-text">
               <h1 className="accom-hero-title">Stay With Us</h1>
               <div className="accom-hero-divider"></div>
@@ -21,30 +22,30 @@ const Accommodation = () => {
                 Your house above the clouds at 13,500 ft
               </p>
             </div>
-          </div>
-          <div className="accom-hero-image">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="accom-hero-image">
             <img
               src="images/accommodation-room.jpg"
               alt="Luxury mountain accommodation"
               className="accom-hero-img"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Room Showcase Section 1 */}
       <section className="accom-showcase-section">
         <div className="accom-showcase-container">
-          <div className="accom-showcase-image">
+          <ScrollReveal as="div" animation="left" className="accom-showcase-image">
             <img
               src="/images/accommodation-room-1.jpg"
               alt="Mountain view room"
               className="accom-showcase-img"
               loading="lazy"
             />
-          </div>
-          <div className="accom-showcase-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="accom-showcase-content">
             <h3 className="accom-showcase-title">Mountain Sanctuary</h3>
             <p className="accom-showcase-text">
               A serene mountain retreat where elegance meets comfort—this room
@@ -52,7 +53,7 @@ const Accommodation = () => {
               cozy seating corner perfect for slow mornings, and warm wooden
               interiors that blend modern design with natural charm.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -66,9 +67,9 @@ const Accommodation = () => {
             loading="lazy"
           />
           <div className="accom-feature-overlay">
-            <h2 className="accom-feature-quote">
+            <ScrollReveal as="h2" animation="up" className="accom-feature-quote">
               "Where comfort meets the infinite sky"
-            </h2>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -76,7 +77,7 @@ const Accommodation = () => {
       {/* Room Showcase Section 2 */}
       <section className="accom-showcase-section accom-showcase-reverse">
         <div className="accom-showcase-container">
-          <div className="accom-showcase-content">
+          <ScrollReveal as="div" animation="left" className="accom-showcase-content">
             <h3 className="accom-showcase-title">Earthy Elegance</h3>
             <p className="accom-showcase-text">
               Inspired by the natural palette of Spiti, this room blends earthy
@@ -85,30 +86,30 @@ const Accommodation = () => {
               bedding and soft tones create a serene retreat in the heart of
               Chicham.
             </p>
-          </div>
-          <div className="accom-showcase-image">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="accom-showcase-image">
             <img
               src="/images/accommodation-room-3.jpg"
               alt="Earthy bedroom design"
               className="accom-showcase-img"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Bathroom Section */}
       <section className="accom-showcase-section">
         <div className="accom-showcase-container">
-          <div className="accom-showcase-image">
+          <ScrollReveal as="div" animation="left" className="accom-showcase-image">
             <img
               src="/images/accommodation-bathroom-1.jpg"
               alt="Luxury bathroom with mountain view"
               className="accom-showcase-img"
               loading="lazy"
             />
-          </div>
-          <div className="accom-showcase-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="accom-showcase-content">
             <h3 className="accom-showcase-title">Luxury Redefined</h3>
             <p className="accom-showcase-text">
               Experience luxury in every detail with our thoughtfully designed
@@ -117,22 +118,22 @@ const Accommodation = () => {
               combines comfort with the breathtaking views that make House on
               the Clouds truly special.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Amenities Grid Section */}
       <section className="accom-amenities-section">
         <div className="accom-amenities-container">
-          <div className="accom-amenities-header">
+          <ScrollReveal as="div" animation="up" className="accom-amenities-header">
             <h2 className="accom-amenities-title">Experience Comfort</h2>
             <p className="accom-amenities-subtitle">
               During your stay you'll experience...
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="accom-amenities-grid">
-            <div className="accom-amenities-images">
+            <ScrollReveal as="div" animation="left" className="accom-amenities-images">
               <div className="accom-amenity-image">
                 <img
                   src="/images/accommodation-feature-left.jpg"
@@ -149,9 +150,9 @@ const Accommodation = () => {
                   loading="lazy"
                 />
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="accom-amenities-list">
+            <ScrollReveal as="div" animation="right" delay={150} className="accom-amenities-list">
               <ul className="accom-features-list">
                 <li className="accom-feature-item">
                   King-sized beds with premium linens
@@ -160,7 +161,7 @@ const Accommodation = () => {
                   Ensuite bathrooms with hot water
                 </li>
                 <li className="accom-feature-item">
-                  Locally inspired decor & handcrafted details
+                  Locally inspired decor &amp; handcrafted details
                 </li>
                 <li className="accom-feature-item">Panoramic mountain views</li>
                 <li className="accom-feature-item">
@@ -170,7 +171,7 @@ const Accommodation = () => {
                   Complimentary Wi-Fi (where available)
                 </li>
               </ul>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -178,30 +179,32 @@ const Accommodation = () => {
       {/* Architecture Showcase */}
       <section className="accom-architecture-section">
         <div className="accom-architecture-container">
-          <img
-            src="/images/accommodation-building-1.jpg"
-            alt="Traditional Himalayan architecture"
-            className="accom-architecture-img"
-            loading="lazy"
-          />
-          <div className="accom-architecture-caption">
+          <ScrollReveal as="div" animation="scale">
+            <img
+              src="/images/accommodation-building-1.jpg"
+              alt="Traditional Himalayan architecture"
+              className="accom-architecture-img"
+              loading="lazy"
+            />
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="up" delay={150} className="accom-architecture-caption">
             <p>Traditional Himalayan architecture meets modern comfort</p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Common Areas */}
       <section className="accom-common-section">
         <div className="accom-common-container">
-          <div className="accom-common-header">
+          <ScrollReveal as="div" animation="up" className="accom-common-header">
             <h2 className="accom-common-title">Common Areas</h2>
             <p className="accom-common-subtitle">
               Spaces designed for connection and relaxation
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="accom-common-gallery">
-            <div className="accom-common-item accom-common-large">
+            <ScrollReveal as="div" animation="scale" className="accom-common-item accom-common-large">
               <img
                 src="/images/accommodation-common-1.jpg"
                 alt="Cozy lounge area"
@@ -211,9 +214,9 @@ const Accommodation = () => {
               <div className="accom-common-overlay">
                 <h3>Lounge Area</h3>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="accom-common-item">
+            <ScrollReveal as="div" animation="scale" delay={150} className="accom-common-item">
               <img
                 src="/images/accommodation-common-2.jpg"
                 alt="Living room with mountain views"
@@ -223,9 +226,9 @@ const Accommodation = () => {
               <div className="accom-common-overlay">
                 <h3>Mountain Views</h3>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="accom-common-item">
+            <ScrollReveal as="div" animation="scale" delay={300} className="accom-common-item">
               <img
                 src="/images/accommodation-common-3.jpg"
                 alt="Warm gathering space"
@@ -235,7 +238,7 @@ const Accommodation = () => {
               <div className="accom-common-overlay">
                 <h3>Gathering Space</h3>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -243,12 +246,12 @@ const Accommodation = () => {
       {/* Information Accordion */}
       <section className="accom-info-section">
         <div className="accom-info-container">
-          <div className="accom-info-header">
+          <ScrollReveal as="div" animation="up" className="accom-info-header">
             <h2 className="accom-info-title">Essential Information</h2>
             <p className="accom-info-subtitle">
               Everything you need to know for your stay
             </p>
-          </div>
+          </ScrollReveal>
 
           <div className="accom-accordion-container">
             {[
@@ -273,7 +276,13 @@ const Accommodation = () => {
                   "Rates vary by season and room type. Peak season: ₹8,000-15,000 per night. Off-season: ₹6,000-12,000 per night. All rates include breakfast and taxes. Room charges exclude applicable additional services.",
               },
             ].map((item, index) => (
-              <div key={index} className="accom-accordion-item">
+              <ScrollReveal
+                as="div"
+                key={index}
+                animation="up"
+                delay={index * 100}
+                className="accom-accordion-item"
+              >
                 <div
                   className="accom-accordion-header"
                   onClick={() => handleAccordionToggle(index)}
@@ -297,7 +306,7 @@ const Accommodation = () => {
                 >
                   <p>{item.content}</p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

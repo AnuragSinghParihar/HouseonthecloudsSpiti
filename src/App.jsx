@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing";
 import Accommodation from "./components/Accommodation";
@@ -9,11 +9,16 @@ import Contact from "./components/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen";
 import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <Router>
+    <>
+      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+      <Router>
       <Navbar />
       <ScrollToTop />
       <div className="App">
@@ -28,6 +33,7 @@ function App() {
       </div>
       <Footer />
     </Router>
+    </>
   );
 }
 

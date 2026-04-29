@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Landing.css";
+import GoogleReviews from "./GoogleReviews";
+import ScrollReveal from "./ScrollReveal";
 
 const Landing = () => {
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isVisible, setIsVisible] = useState({});
 
-  // Refs for intersection observer
-  // const sectionRefs = useRef([]);
-
-  // Enhanced scroll effect for navbar
+  // Navbar scroll effect
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -28,9 +26,8 @@ const Landing = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Add this new useEffect in your Landing.js file
+  // Hash navigation
   useEffect(() => {
-    // Handle hash navigation when component loads
     const hash = window.location.hash;
     if (hash === "#contact") {
       const timer = setTimeout(() => {
@@ -47,40 +44,6 @@ const Landing = () => {
     }
   }, []);
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px",
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.id || entry.target.className;
-          setIsVisible((prev) => ({
-            ...prev,
-            [sectionId]: true,
-          }));
-        }
-      });
-    }, observerOptions);
-
-    // Observe all sections
-    const sections = document.querySelectorAll(
-      ".experience-section, .bonfire-section, .outdoor-breakfast-section, .explore-section, .hotc-section, .local-welcome-section, .room-section, .background-text-section"
-    );
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach((section) => {
-        if (section) observer.unobserve(section);
-      });
-    };
-  }, []);
-
   // Auto-dismiss success/error messages
   useEffect(() => {
     if (submitStatus) {
@@ -95,34 +58,34 @@ const Landing = () => {
     {
       name: "Key Monastery",
       image: "/images/landing-place-key-monastery.jpg",
-      description: `Perched dramatically on a hilltop, Key Monastery is the largest and oldest Buddhist monastery in the Spiti Valley. 
-      With centuries-old murals, sacred scriptures, and peaceful monks, it's not just a spiritual site but a cultural experience. 
+      description: `Perched dramatically on a hilltop, Key Monastery is the largest and oldest Buddhist monastery in the Spiti Valley.
+      With centuries-old murals, sacred scriptures, and peaceful monks, it's not just a spiritual site but a cultural experience.
       The view of the Spiti River and valley from the top is simply breathtaking — a must-visit for history lovers and soul seekers.`,
     },
     {
       name: "Chicham Bridge",
       image: "/images/landing-place-chicham-bridge.jpg",
-      description: `Chicham Bridge holds the record as Asia's highest suspension bridge, suspended over a gorge 1,000 feet deep. 
-      Connecting remote mountain villages, this engineering marvel offers spectacular views and a thrilling experience. 
+      description: `Chicham Bridge holds the record as Asia's highest suspension bridge, suspended over a gorge 1,000 feet deep.
+      Connecting remote mountain villages, this engineering marvel offers spectacular views and a thrilling experience.
       Walking or driving across it gives you an adrenaline rush and a chance to click some truly Instagram-worthy shots.`,
     },
     {
       name: "Langza Buddha Statue",
       image: "/images/landing-place-langza-buddha.jpg",
-      description: `Overlooking the Trans-Himalayas, the giant seated Buddha of Langza gazes peacefully at the valley below. 
-      It's a symbol of harmony and heritage, surrounded by fossil-rich mountains and traditional mud houses. 
+      description: `Overlooking the Trans-Himalayas, the giant seated Buddha of Langza gazes peacefully at the valley below.
+      It's a symbol of harmony and heritage, surrounded by fossil-rich mountains and traditional mud houses.
       Sunsets here are magical, casting golden hues across the peaks — making it a photographer's and meditator's dream alike.`,
     },
   ];
 
   const openPopup = (place) => {
     setSelectedPlace(place);
-    document.body.style.overflow = "hidden"; // Prevent background scrolling
+    document.body.style.overflow = "hidden";
   };
 
   const closePopup = () => {
     setSelectedPlace(null);
-    document.body.style.overflow = "unset"; // Restore scrolling
+    document.body.style.overflow = "unset";
   };
 
   const handleSubmit = async (e) => {
@@ -132,8 +95,6 @@ const Landing = () => {
 
     try {
       const formData = new FormData(e.target);
-
-      // Add timestamp
       formData.append("timestamp", new Date().toISOString());
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -147,7 +108,6 @@ const Landing = () => {
         setSubmitStatus("success");
         e.target.reset();
 
-        // Smooth scroll to success message
         setTimeout(() => {
           const successElement = document.querySelector(".success-message");
           if (successElement) {
@@ -191,16 +151,7 @@ const Landing = () => {
           loop
           playsInline
           preload="auto"
-          onError={(e) => {
-            console.error(
-              "Background video error:",
-              e.target.error || "Unknown error"
-            );
-            e.target.style.display = "none";
-          }}
-          onLoadStart={() => console.log("Video loading started")}
-          onCanPlay={() => console.log("Video can play")}
-          onPlay={() => console.log("Video started playing")}
+          onError={(e) => { e.target.style.display = "none"; }}
         >
           <source src="/videos/landing-hero.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -212,21 +163,18 @@ const Landing = () => {
           <h1 className="heading-three">House on the Clouds</h1>
         </div>
       </div>
+
       <section className="before-hero">
-        <h1 className="heading-main-two">
+        <ScrollReveal as="h1" animation="up" className="heading-main-two">
           One of the World's Highest Boutique Stay
           <br /> <i>Perched at 13,615 ft in Chicham, Spiti Valley</i>
-        </h1>
+        </ScrollReveal>
       </section>
-      {/* Mobile Reel Video Section */}
-      <section
-        className={`landing-reel-section ${
-          isVisible["landing-reel-section"] ? "animate-in" : ""
-        }`}
-        id="landing-reel-section"
-      >
+
+      {/* Reel Video Section */}
+      <section className="landing-reel-section" id="landing-reel-section">
         <div className="landing-reel-container">
-          <div className="landing-reel-content">
+          <ScrollReveal as="div" animation="left" className="landing-reel-content">
             <h3 className="landing-reel-title">Moments in Motion</h3>
             <p className="landing-reel-text">
               Experience the raw beauty of Spiti Valley through authentic
@@ -237,41 +185,34 @@ const Landing = () => {
             <div className="landing-reel-details">
               <span>Life above the clouds</span>
             </div>
-          </div>
-          <div className="landing-reel-video">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="landing-reel-video">
             <video
               className="landing-reel-vid"
               autoPlay
               muted
               loop
               playsInline
-              onError={(e) => {
-                console.error("Reel video error:", e.target.error);
-                e.target.style.display = "none";
-              }}
+              onError={(e) => { e.target.style.display = "none"; }}
             >
               <source src="/videos/MobileVideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
+
       {/* Side-by-side Experience Section */}
-      <section
-        className={`experience-section ${
-          isVisible["experience-section"] ? "animate-in" : ""
-        }`}
-        id="experience-section"
-      >
-        <div className="fullscreen-image-container">
+      <section className="experience-section" id="experience-section">
+        <ScrollReveal as="div" animation="left" className="fullscreen-image-container">
           <img
             src="/images/landing-experience-1.jpg"
             alt="House on the Clouds experience"
             className="fullscreen-image"
             loading="lazy"
           />
-        </div>
-        <div className="image-text-overlay">
+        </ScrollReveal>
+        <ScrollReveal as="div" animation="right" delay={100} className="image-text-overlay">
           <div className="text-content">
             <h3 className="combined-text-title">KORA - Circle of Stories</h3>
             <p className="combined-text">
@@ -280,19 +221,15 @@ const Landing = () => {
               of connection and warmth. <br />
               <br /> House on the Clouds is not a hotel — it is an experience.
               Set amidst quiet landscapes, it invites you to pause and reconnect
-              with nature’s pristine beauty.
+              with nature's pristine beauty.
             </p>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
+
       {/* Side-by-side Room Section */}
-      <section
-        className={`room-section ${
-          isVisible["room-section"] ? "animate-in" : ""
-        }`}
-        id="room-section"
-      >
-        <div className="image-text-overlay">
+      <section className="room-section" id="room-section">
+        <ScrollReveal as="div" animation="left" className="image-text-overlay">
           <div className="text-content">
             <h3 className="combined-text-title">Accomodation</h3>
             <p className="combined-text">
@@ -301,18 +238,19 @@ const Landing = () => {
               cultural heritage of this mystical land.
             </p>
           </div>
-        </div>
-        <div className="fullscreen-image-container">
+        </ScrollReveal>
+        <ScrollReveal as="div" animation="right" delay={100} className="fullscreen-image-container">
           <img
             src="/images/landing-room-1.jpg"
             alt="Spiti architecture inspired rooms"
             className="fullscreen-image"
             loading="lazy"
           />
-        </div>
+        </ScrollReveal>
       </section>
+
       <section className="hero">
-        <div className="after-hero">
+        <ScrollReveal as="div" animation="up" className="after-hero">
           <h6 className="heading-one-hero">SPITI VALLEY</h6>
           <p className="para-one">
             House on the Clouds offers a rare retreat above the clouds — a
@@ -321,62 +259,52 @@ const Landing = () => {
             every sunrise paints a new masterpiece across endless mountain
             vistas.
           </p>
-        </div>
+        </ScrollReveal>
         <video
           className="bg-video-one"
           autoPlay
           muted
           loop
           playsInline
-          onError={(e) => {
-            console.error("Hotel video error:", e.target.error);
-            e.target.style.display = "none";
-          }}
+          onError={(e) => { e.target.style.display = "none"; }}
         >
           <source src="/videos/landing-hotel.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </section>
+
       <section className="experiences-section">
         <div className="experiences-heading">
-          <h2>Experience</h2>
-          <h2>at</h2>
-          <h2>House on the Clouds</h2>
+          <ScrollReveal as="h2" animation="up">Experience</ScrollReveal>
+          <ScrollReveal as="h2" animation="up" delay={100}>at</ScrollReveal>
+          <ScrollReveal as="h2" animation="up" delay={200}>House on the Clouds</ScrollReveal>
         </div>
       </section>
+
       {/* Background Image Section with Text Overlay */}
-      <section
-        className={`local-welcome-section ${
-          isVisible["local-welcome-section"] ? "animate-in" : ""
-        }`}
-        id="local-welcome-section"
-      >
-        <div className="text-content-image">
+      <section className="local-welcome-section" id="local-welcome-section">
+        <ScrollReveal as="div" animation="up" className="text-content-image">
           <h3 className="local-welcome-title">Local Welcome</h3>
           <p className="outdoor-breakfast-text">
             Step into the warmth of Himachali traditions, where heartfelt smiles
             and genuine hospitality embrace you like family, creating memories
             that last a lifetime.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
-      {/* Existing Split Sections */}
-      <section
-        className={`bonfire-section ${
-          isVisible["bonfire-section"] ? "animate-in" : ""
-        }`}
-        id="bonfire-section"
-      >
+
+      {/* Bonfire Section */}
+      <section className="bonfire-section" id="bonfire-section">
         <div className="bonfire-container">
-          <div className="bonfire-image">
+          <ScrollReveal as="div" animation="left" className="bonfire-image">
             <img
               src="/images/landing-bonfire-1.jpg"
               alt="Bonfire under the stars"
               className="bonfire-img"
               loading="lazy"
             />
-          </div>
-          <div className="bonfire-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="bonfire-content">
             <h3 className="bonfire-title">Bonfire Nights</h3>
             <p className="bonfire-text">
               Under a blanket of stars more brilliant than city lights could
@@ -384,17 +312,14 @@ const Landing = () => {
               stories, laughter, and timeless memories that warm your soul long
               after the flames fade.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
-      <section
-        className={`outdoor-breakfast-section ${
-          isVisible["outdoor-breakfast-section"] ? "animate-in" : ""
-        }`}
-        id="outdoor-breakfast-section"
-      >
+
+      {/* Outdoor Breakfast Section */}
+      <section className="outdoor-breakfast-section" id="outdoor-breakfast-section">
         <div className="outdoor-breakfast-container">
-          <div className="outdoor-breakfast-content">
+          <ScrollReveal as="div" animation="left" className="outdoor-breakfast-content">
             <h3 className="outdoor-breakfast-title">Outdoor Breakfast</h3>
             <p className="outdoor-breakfast-text">
               Awaken to crisp mountain air and golden sunlight painting the
@@ -402,27 +327,23 @@ const Landing = () => {
               embrace while eagles soar overhead and prayer flags flutter in the
               gentle breeze.
             </p>
-          </div>
-          <div className="outdoor-breakfast-image">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="outdoor-breakfast-image">
             <img
               src="/images/landing-outdoor-breakfast-1.jpg"
               alt="Outdoor breakfast in the mountains"
               className="outdoor-breakfast-img"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
-      {/* Stargazing Section - Creative Minimalist Layout */}
-      <section
-        className={`stargazing-section ${
-          isVisible["stargazing-section"] ? "animate-in" : ""
-        }`}
-        id="stargazing-section"
-      >
+
+      {/* Stargazing Section */}
+      <section className="stargazing-section" id="stargazing-section">
         <div className="stargazing-container">
           <div className="stargazing-content">
-            <div className="stargazing-text">
+            <ScrollReveal as="div" animation="left" className="stargazing-text">
               <h3 className="stargazing-title">Stargazing</h3>
               <p className="stargazing-description">
                 At 13,615 feet, witness the universe unfold above you. With zero
@@ -433,8 +354,8 @@ const Landing = () => {
               <div className="stargazing-accent">
                 <span>Under the Himalayas</span>
               </div>
-            </div>
-            <div className="stargazing-images">
+            </ScrollReveal>
+            <ScrollReveal as="div" animation="right" delay={150} className="stargazing-images">
               <div className="stargazing-image-primary">
                 <img
                   src="/images/stargazing-1.JPG"
@@ -451,42 +372,35 @@ const Landing = () => {
                   loading="lazy"
                 />
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
-      {/* Another Background Text Section - Add your image */}
-      <section
-        className={`background-text-section ${
-          isVisible["background-text-section"] ? "animate-in" : ""
-        }`}
-        id="background-text-section"
-      >
-        <div className="text-content-image">
+
+      {/* Mountain Meditation Background Section */}
+      <section className="background-text-section" id="background-text-section">
+        <ScrollReveal as="div" animation="up" className="text-content-image">
           <h3 className="local-welcome-title">Mountain Meditation</h3>
           <p className="outdoor-breakfast-text">
             Find your inner peace surrounded by the ancient wisdom of the
             mountains. Let the silence of the peaks guide you to moments of
             profound tranquility and self-discovery.
           </p>
-        </div>
+        </ScrollReveal>
       </section>
-      <section
-        className={`bonfire-section ${
-          isVisible["river-breakfast-section"] ? "animate-in" : ""
-        }`}
-        id="river-breakfast-section"
-      >
+
+      {/* River Breakfast Section */}
+      <section className="bonfire-section" id="river-breakfast-section">
         <div className="bonfire-container">
-          <div className="bonfire-image">
+          <ScrollReveal as="div" animation="left" className="bonfire-image">
             <img
               src="/images/landing-river-breakfast-1.jpg"
               alt="River breakfast with mountain views"
               className="bonfire-img"
               loading="lazy"
             />
-          </div>
-          <div className="bonfire-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="bonfire-content">
             <h3 className="bonfire-title">River Breakfast</h3>
             <p className="bonfire-text">
               Indulge in a serene mountain breakfast by the flowing river, where
@@ -494,22 +408,23 @@ const Landing = () => {
               with breathtaking views that remind you of nature's infinite
               beauty.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
-      <section
-        className={`explore-section ${
-          isVisible["explore-section"] ? "animate-in" : ""
-        }`}
-        id="explore-section"
-      >
-        <h2 className="explore-title">Discover the Mystical Land Around Us</h2>
+
+      {/* Explore Section */}
+      <section className="explore-section" id="explore-section">
+        <ScrollReveal as="h2" animation="up" className="explore-title">
+          Discover the Mystical Land Around Us
+        </ScrollReveal>
         <div className="explore-grid">
           {Places.map((place, index) => (
-            <div
+            <ScrollReveal
+              as="div"
               key={index}
+              animation="scale"
+              delay={index * 150}
               className="explore-card"
-              style={{ animationDelay: `${index * 150}ms` }}
               onClick={() => openPopup(place)}
               role="button"
               tabIndex={0}
@@ -531,7 +446,7 @@ const Landing = () => {
                 <span>Click to Explore</span>
               </div>
               <div className="place-name">{place.name}</div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -563,18 +478,18 @@ const Landing = () => {
           </div>
         )}
       </section>
-      <section
-        id="contact"
-        className={`hotc-section ${
-          isVisible["hotc-section"] ? "animate-in" : ""
-        }`}
-      >
-        <div className="hero-content">
+
+      {/* Guest Reviews Section */}
+      <GoogleReviews />
+
+      {/* Contact Section */}
+      <section id="contact" className="hotc-section">
+        <ScrollReveal as="div" animation="up" className="hero-content">
           <h1 className="hero-title">Get in Touch</h1>
           <p className="hero-subtitle">
             We'd love to hear from you and help plan your perfect stay
           </p>
-        </div>
+        </ScrollReveal>
 
         {submitStatus === "success" && (
           <div className="success-message">
@@ -597,7 +512,7 @@ const Landing = () => {
         )}
 
         <div className="hotc-container">
-          <div className="contact-form-container fade-in-left">
+          <ScrollReveal as="div" animation="left" delay={100} className="contact-form-container fade-in-left">
             <div className="form-header">
               <h2>Send us a Query</h2>
               <p>
@@ -663,6 +578,7 @@ const Landing = () => {
                   />
                 </div>
               </div>
+
               <div className="form-group full-width">
                 <label htmlFor="message">Message *</label>
                 <textarea
@@ -689,9 +605,9 @@ const Landing = () => {
                 )}
               </button>
             </form>
-          </div>
+          </ScrollReveal>
 
-          <div className="hotc-map">
+          <ScrollReveal as="div" animation="right" delay={100} className="hotc-map">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2566.5445026284897!2d77.98247847200939!3d32.34439881647555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3906a952f92a494f%3A0x1b3c31382fd3f7b5!2sHouse%20on%20the%20Clouds%20Spiti!5e1!3m2!1sen!2sin!4v1755552949588!5m2!1sen!2sin"
               width="100%"
@@ -701,36 +617,36 @@ const Landing = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="House on the Clouds Location"
             ></iframe>
-          </div>
+          </ScrollReveal>
         </div>
 
         <div className="landing-common-area-images">
-          <div className="common-area-image-container">
+          <ScrollReveal as="div" animation="scale" className="common-area-image-container">
             <img
               src="/images/landing-common-1.jpg"
               alt="Cozy Lounge Area"
               className="common-area-image"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
 
-          <div className="common-area-image-container">
+          <ScrollReveal as="div" animation="scale" delay={150} className="common-area-image-container">
             <img
               src="/images/accommodation-common-1.jpg"
               alt="Living Room with Mountain Views"
               className="common-area-image"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
 
-          <div className="common-area-image-container">
+          <ScrollReveal as="div" animation="scale" delay={300} className="common-area-image-container">
             <img
               src="/images/landing-common-3.jpg"
               alt="Warm Common Area"
               className="common-area-image"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

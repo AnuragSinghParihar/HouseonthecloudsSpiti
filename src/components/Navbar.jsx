@@ -6,20 +6,27 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showFAQ, setShowFAQ] = useState(false);
-  // eslint-disable-next-line no-unused-vars
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // FAQ data
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setShowFAQ(false);
+  }, [location]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
   const faqData = [
     {
       question: "What's the best time to visit Spiti Valley?",
@@ -63,18 +70,14 @@ const Navbar = () => {
     },
   ];
 
-  const toggleFAQ = () => {
-    setShowFAQ(!showFAQ);
-  };
+  const toggleFAQ = () => setShowFAQ(!showFAQ);
 
-  // Close FAQ when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (showFAQ && !event.target.closest(".faq-section")) {
         setShowFAQ(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [showFAQ]);
@@ -82,6 +85,7 @@ const Navbar = () => {
   return (
     <nav>
       <section className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+        {/* Desktop left links */}
         <div className="navbar-left">
           <div className="logo-box">
             <Link to="/" aria-label="Home">
@@ -96,6 +100,7 @@ const Navbar = () => {
           <Link to="/gallery">Gallery</Link>
         </div>
 
+        {/* Desktop right */}
         <div className="navbar-right">
           <div className="faq-section">
             <button
@@ -123,9 +128,7 @@ const Navbar = () => {
                 </div>
                 <div className="faq-footer">
                   <div className="faq-contact-info">
-                    <p>
-                      <strong>houseonthecloudsspiti@gmail.com</strong>
-                    </p>
+                    <p><strong>houseonthecloudsspiti@gmail.com</strong></p>
                     <p>+91 9805848433</p>
                   </div>
                   <Link to="/contact" className="faq-contact-link">
@@ -145,7 +148,51 @@ const Navbar = () => {
             Book Here
           </a>
         </div>
+
+        {/* Hamburger — mobile only */}
+        <button
+          className={`hamburger ${mobileMenuOpen ? "open" : ""}`}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </section>
+
+      {/* Dark overlay behind drawer */}
+      {mobileMenuOpen && (
+        <div className="mobile-overlay" onClick={() => setMobileMenuOpen(false)} />
+      )}
+
+      {/* Mobile drawer */}
+      <div className={`mobile-menu ${mobileMenuOpen ? "open" : ""}`}>
+        <div className="mobile-menu-inner">
+          <Link to="/" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+          <Link to="/journey" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>The Journey</Link>
+          <Link to="/accommodation" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Accommodation</Link>
+          <Link to="/snow-leopard" className="mobile-nav-link mobile-snow" onClick={() => setMobileMenuOpen(false)}>
+            <Sparkles size={16} strokeWidth={1.5} /> Snow Leopard Expedition
+          </Link>
+          <Link to="/gallery" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Gallery</Link>
+          <div className="mobile-menu-divider"></div>
+          <a
+            href="https://live.ipms247.com/booking/book-rooms-houseonthecloudsspiti"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mobile-book-btn"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Book Your Stay
+          </a>
+          <div className="mobile-contact-info">
+            <p>houseonthecloudsspiti@gmail.com</p>
+            <p>+91 9805848433</p>
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };

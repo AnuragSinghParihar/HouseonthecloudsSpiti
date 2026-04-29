@@ -1,33 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
+import ScrollReveal from "./ScrollReveal";
 
 const Footer = () => {
   return (
     <div className="footer-main-container">
-      {/* Hero CTA Section */}
-      <div className="footer-hero-cta">
-        <h1 className="footer-hero-title">
-          Experience the magic of the Himalayas
-          <br />
-          at House on the Clouds
-        </h1>
-        <p className="footer-hero-subtitle">
-          Escape to one of the world's highest boutique stay, where breathtaking
-          views meet unparalleled hospitality at 13,615 feet above sea level.
-        </p>
-        <a
-          href="https://live.ipms247.com/booking/book-rooms-houseonthecloudsspiti"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="footer-cta-button"
-        >
-          Book Your Stay
-          <div className="footer-cta-arrow">↗</div>
-        </a>
-      </div>
-
-      <header className="footer-logo-header">
+      <ScrollReveal as="header" animation="up" className="footer-logo-header">
         <div className="footer-logo-center">
           <img src="/images/logo.jpg" alt="Logo" className="footer-logo" />
         </div>
@@ -37,12 +16,12 @@ const Footer = () => {
         <p className="footer-location">SPITI VALLEY</p>
         <p className="footer-tagline">A place to pause, breathe and belong</p>
         <div className="footer-underline"></div>
-      </header>
+      </ScrollReveal>
 
       <div className="footer-divider"></div>
 
       <section className="footer-main-section">
-        <div className="footer-left">
+        <ScrollReveal as="div" animation="left" className="footer-left">
           <p>
             HOUSE ON THE CLOUDS, Chicham village 172114,
             <br />
@@ -53,9 +32,9 @@ const Footer = () => {
             <br />
             +91 9805848433
           </p>
-        </div>
+        </ScrollReveal>
         <div className="footer-center"></div>
-        <div className="footer-right">
+        <ScrollReveal as="div" animation="right" delay={100} className="footer-right">
           <Link to="/journey" className="footer-link">
             The Journey
           </Link>
@@ -86,17 +65,19 @@ const Footer = () => {
               Instagram
             </a>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
 
       {/* Large Brand Text */}
-      <div className="footer-brand-text">HOUSE ON THE CLOUDS</div>
+      <ScrollReveal as="div" animation="up" className="footer-brand-text">
+        HOUSE ON THE CLOUDS
+      </ScrollReveal>
 
       {/* Bottom Info */}
       <div className="footer-bottom-info">
         <div className="footer-legal-links">
           <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms & Conditions</a>
+          <a href="/terms">Terms &amp; Conditions</a>
         </div>
         <div className="footer-copyright">
           ©HouseOnTheClouds 2025. All Rights Reserved

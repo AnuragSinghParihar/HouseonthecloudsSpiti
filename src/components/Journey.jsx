@@ -1,32 +1,33 @@
 import React from "react";
 import "./Journey.css";
+import ScrollReveal from "./ScrollReveal";
 
 const Journey = () => {
   return (
     <div className="journey-page">
       <section className="journey-blessed-section">
         <div className="journey-blessed-container">
-          <div className="journey-blessed-image">
+          <ScrollReveal as="div" animation="left" className="journey-blessed-image">
             <img
               src="/images/journey-blessed.JPG"
               alt="Blessed beginning - Lama visit"
               className="journey-blessed-img"
               loading="lazy"
             />
-          </div>
-          <div className="journey-blessed-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="journey-blessed-content">
             <h3 className="journey-blessed-title">A Blessed Beginning</h3>
             <p className="journey-blessed-text">
               A blessing to our space — when the Lama visited, his presence wove
               peace and spirit into our home.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="journey-lamas-blessing-section">
         <div className="journey-lamas-blessing-container">
-          <div className="journey-lamas-blessing-content">
+          <ScrollReveal as="div" animation="left" className="journey-lamas-blessing-content">
             <h3 className="journey-lamas-blessing-title">
               The Lama's Blessing
             </h3>
@@ -35,29 +36,29 @@ const Journey = () => {
               energy. His visit marked the beginning of our journey to shape
               this house into a place of healing and connection.
             </p>
-          </div>
-          <div className="journey-lamas-blessing-image">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="journey-lamas-blessing-image">
             <img
               src="/images/journey-1.jpg"
               alt="Lama's blessing moment"
               className="journey-lamas-blessing-img"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="journey-collaboration-section">
         <div className="journey-collaboration-container">
-          <div className="journey-collaboration-image">
+          <ScrollReveal as="div" animation="left" className="journey-collaboration-image">
             <img
               src="/images/journey-2.JPG"
               alt="House on the Clouds collaboration"
               className="journey-collaboration-img"
               loading="lazy"
             />
-          </div>
-          <div className="journey-collaboration-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="journey-collaboration-content">
             <h3 className="journey-collaboration-title">House on the Clouds</h3>
             <p className="journey-collaboration-text">
               House on the Clouds is a collaboration of two worlds – Amit, an
@@ -66,13 +67,13 @@ const Journey = () => {
               Together, they weave hospitality with culture, creating a stay
               that feels both adventurous and deeply grounded.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="journey-sanctuary-section">
         <div className="journey-sanctuary-container">
-          <div className="journey-sanctuary-content">
+          <ScrollReveal as="div" animation="left" className="journey-sanctuary-content">
             <h3 className="journey-sanctuary-title">
               A Sanctuary Under the Stars
             </h3>
@@ -88,29 +89,29 @@ const Journey = () => {
               their vibrant colors and cultural significance, stand as a
               testament to the rich heritage of Himachal Pradesh.
             </p>
-          </div>
-          <div className="journey-sanctuary-image">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="journey-sanctuary-image">
             <img
               src="/images/journey-3.jpg"
               alt="Sanctuary under the stars"
               className="journey-sanctuary-img"
               loading="lazy"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="journey-stories-section">
         <div className="journey-stories-container">
-          <div className="journey-stories-image">
+          <ScrollReveal as="div" animation="left" className="journey-stories-image">
             <img
               src="/images/journey-4.JPG"
               alt="Where stories come alive"
               className="journey-stories-img"
               loading="lazy"
             />
-          </div>
-          <div className="journey-stories-content">
+          </ScrollReveal>
+          <ScrollReveal as="div" animation="right" delay={150} className="journey-stories-content">
             <h3 className="journey-stories-title">Where Stories Come Alive</h3>
             <p className="journey-stories-text">
               In our warm and inviting common spaces, guests from around the
@@ -123,13 +124,13 @@ const Journey = () => {
               Over traditional tea and local delicacies, friendships are forged
               and memories are made.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
 
         <div className="journey-three-image-section">
           <div className="journey-three-image-container">
             {/* Left Column - Images */}
-            <div className="journey-three-images-column">
+            <ScrollReveal as="div" animation="left" className="journey-three-images-column">
               <div className="journey-three-images-row">
                 <div className="journey-three-image-item">
                   <img
@@ -158,12 +159,11 @@ const Journey = () => {
                   />
                 </div>
               </div>
-              {/* Placeholder for additional image */}
               <div className="journey-three-image-item journey-image-placeholder"></div>
-            </div>
+            </ScrollReveal>
 
             {/* Right Column - Content */}
-            <div className="journey-three-content-column">
+            <ScrollReveal as="div" animation="right" delay={150} className="journey-three-content-column">
               <h3 className="journey-three-heading-above">
                 Mud Sourced From Spiti Valley
               </h3>
@@ -185,7 +185,7 @@ const Journey = () => {
                   craftsmanship meets modern comfort in perfect harmony.
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

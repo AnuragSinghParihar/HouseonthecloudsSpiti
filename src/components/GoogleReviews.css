@@ -1,0 +1,67 @@
+/* ─── Elfsight widget wrapper ─── */
+.gr-widget-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto 1rem;
+  padding: 0 2rem;
+}
+
+/* ─── Force equal card heights & wider cards ─── */
+
+/* Grid layout */
+.gr-widget-wrapper .eapps-google-reviews-list {
+  align-items: stretch !important;
+}
+
+.gr-widget-wrapper .eapps-google-reviews-list-item {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 320px !important;
+  max-width: 420px !important;
+  flex: 1 1 320px !important;
+}
+
+.gr-widget-wrapper .eapps-google-reviews-item {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  flex: 1 !important;
+}
+
+.gr-widget-wrapper .eapps-google-reviews-item-body {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.gr-widget-wrapper .eapps-google-reviews-item-text {
+  flex: 1 !important;
+}
+
+/* Slider layout */
+.gr-widget-wrapper .eapps-google-reviews-slider-item {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 360px !important;
+  max-width: 460px !important;
+}
+
+.gr-widget-wrapper .eapps-google-reviews-slider-item .eapps-google-reviews-item {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .gr-widget-wrapper {
+    padding: 0 1rem;
+  }
+
+  .gr-widget-wrapper .eapps-google-reviews-list-item,
+  .gr-widget-wrapper .eapps-google-reviews-slider-item {
+    min-width: 270px !important;
+    max-width: 300px !important;
+  }
+}
