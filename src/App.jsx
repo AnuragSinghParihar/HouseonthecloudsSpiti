@@ -10,6 +10,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
+import HotelPolicy from "./components/HotelPolicy";
 import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/journey" element={<Journey />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/hotel-policy" element={<HotelPolicy />} />
         </Routes>
       </div>
       <Footer />

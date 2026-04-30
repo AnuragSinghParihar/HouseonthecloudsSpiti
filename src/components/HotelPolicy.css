@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap');
+
+/* ── Page wrapper ── */
+.hp-page {
+  min-height: 100vh;
+  background: #faf8f5;
+}
+
+/* ── Hero ── */
+.hp-hero {
+  position: relative;
+  height: 52vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 124, 142, 1) 0%,
+    rgba(123, 134, 160, 1) 40%,
+    rgba(162, 147, 134, 1) 70%,
+    rgba(180, 163, 174, 1) 100%
+  );
+  overflow: hidden;
+}
+
+/* Mountain silhouette — matches footer */
+.hp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><path d="M0,1080 L0,400 L200,350 L400,300 L600,250 L800,280 L1000,200 L1200,250 L1400,180 L1600,220 L1800,150 L1920,200 L1920,1080 Z" fill="rgba(0,0,0,0.1)"/><path d="M0,1080 L0,500 L150,480 L350,450 L550,400 L750,430 L950,350 L1150,400 L1350,320 L1550,360 L1750,290 L1920,340 L1920,1080 Z" fill="rgba(0,0,0,0.05)"/></svg>') no-repeat center bottom;
+  background-size: cover;
+  pointer-events: none;
+}
+
+.hp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.hp-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.hp-hero-eyebrow {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 1rem;
+}
+
+.hp-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin: 0 0 0.8rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+}
+
+.hp-hero-sub {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* ── Body ── */
+.hp-body {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+}
+
+/* ── Intro ── */
+.hp-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(139, 124, 142, 0.2);
+}
+
+/* ── Section ── */
+.hp-section {
+  margin-bottom: 3.5rem;
+}
+
+.hp-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 400;
+  color: #3a2f3a;
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.5px;
+}
+
+.hp-section-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(139, 124, 142, 0.8), rgba(162, 147, 134, 0.4));
+  margin-bottom: 1.8rem;
+  border-radius: 2px;
+}
+
+/* ── Policy item ── */
+.hp-item {
+  margin-bottom: 1.4rem;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(139, 124, 142, 0.25);
+}
+
+.hp-item-heading {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(123, 134, 160, 0.9);
+  margin: 0 0 0.35rem;
+}
+
+.hp-item-text {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #555;
+  margin: 0;
+}
+
+/* ── Bullet list ── */
+.hp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hp-list-item {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #555;
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  border-bottom: 1px solid rgba(139, 124, 142, 0.1);
+  position: relative;
+}
+
+.hp-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(139, 124, 142, 0.6);
+}
+
+.hp-list-item:last-child {
+  border-bottom: none;
+}
+
+/* ── Contact footer ── */
+.hp-contact {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 124, 142, 0.08) 0%,
+    rgba(162, 147, 134, 0.08) 100%
+  );
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(139, 124, 142, 0.15);
+}
+
+.hp-contact p {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(139, 124, 142, 0.7);
+  margin: 0 0 0.8rem;
+}
+
+.hp-contact-link {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #3a2f3a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 124, 142, 0.4);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hp-contact-link:hover {
+  color: rgba(123, 134, 160, 1);
+  border-color: rgba(123, 134, 160, 0.6);
+}
+
+.hp-contact-sep {
+  display: inline-block;
+  margin: 0 0.8rem;
+  color: rgba(139, 124, 142, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .hp-body {
+    padding: 3rem 1.25rem 4rem;
+  }
+
+  .hp-item {
+    padding-left: 0.75rem;
+  }
+
+  .hp-contact {
+    padding: 1.8rem 1.25rem;
+  }
+
+  .hp-contact-sep {
+    display: block;
+    margin: 0.4rem 0;
+  }
+}

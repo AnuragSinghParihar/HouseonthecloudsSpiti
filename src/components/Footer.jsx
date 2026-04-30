@@ -76,8 +76,7 @@ const Footer = () => {
       {/* Bottom Info */}
       <div className="footer-bottom-info">
         <div className="footer-legal-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms &amp; Conditions</a>
+          <Link to="/hotel-policy">Hotel Policy</Link>
         </div>
         <div className="footer-copyright">
           ©HouseOnTheClouds 2025. All Rights Reserved

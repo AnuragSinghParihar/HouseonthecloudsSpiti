@@ -355,7 +355,7 @@ const Landing = () => {
                 <span>Under the Himalayas</span>
               </div>
             </ScrollReveal>
-            <ScrollReveal as="div" animation="right" delay={150} className="stargazing-images">
+            <div className="stargazing-images">
               <div className="stargazing-image-primary">
                 <img
                   src="/images/stargazing-1.JPG"
@@ -372,7 +372,7 @@ const Landing = () => {
                   loading="lazy"
                 />
               </div>
-            </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
