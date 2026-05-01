@@ -11,7 +11,7 @@
 .journey-blessed-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 90vh;
+  max-height: 620px;
   margin: 0 0 6rem;
 }
 
@@ -65,7 +65,7 @@
 .journey-lamas-blessing-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 90vh;
+  max-height: 620px;
   margin: 6rem 0;
 }
 
@@ -121,7 +121,7 @@
 .journey-collaboration-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 90vh;
+  max-height: 620px;
   margin: 6rem 0;
 }
 
@@ -175,7 +175,7 @@
 .journey-sanctuary-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 90vh;
+  max-height: 620px;
   margin: 6rem 0;
 }
 
@@ -240,7 +240,7 @@
 .journey-stories-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 90vh;
+  max-height: 620px;
   margin-bottom: 8rem;
 }
 
@@ -327,18 +327,18 @@
 .journey-three-images-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .journey-three-single-image {
   grid-column: 1 / -1;
-  max-width: 70%;
-  margin-left: auto;
+  max-width: 100%;
+  margin-left: 0;
 }
 
 .journey-three-image-item {
-  aspect-ratio: 1/1;
+  aspect-ratio: 4/3;
   overflow: hidden;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 }
@@ -397,10 +397,13 @@
   margin-bottom: 0;
 }
 
-/* Placeholder for additional images */
+/* Fourth image: wide panoramic strip at the bottom */
 .journey-image-placeholder {
-  background: url("/images/IMG_4704 3.JPG");
-  background-size: cover;
+  width: 100%;
+  aspect-ratio: 16/6;
+  background: url("/images/IMG_4704%203.JPG") center/cover no-repeat;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  border-radius: 0;
 }
 
 /* Responsive Design */
@@ -457,6 +460,7 @@
   .journey-stories-container {
     grid-template-columns: 1fr;
     min-height: auto;
+    max-height: none;
   }
 
   .journey-blessed-content,
@@ -473,8 +477,19 @@
   .journey-collaboration-image,
   .journey-sanctuary-image,
   .journey-stories-image {
-    min-height: 300px;
     order: 1;
+    min-height: unset;
+    height: auto;
+  }
+
+  .journey-blessed-img,
+  .journey-lamas-blessing-img,
+  .journey-collaboration-img,
+  .journey-sanctuary-img,
+  .journey-stories-img {
+    height: auto;
+    width: 100%;
+    display: block;
   }
 
   .journey-blessed-title,

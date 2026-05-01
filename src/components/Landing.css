@@ -1393,7 +1393,7 @@ body {
   .heading-main-two { font-size: 1.8rem; }
   .heading-main-two i { font-size: 1.1rem; }
 
-  /* Side-by-side sections → stack */
+  /* Side-by-side sections → stack, image always first */
   .experience-section,
   .room-section {
     grid-template-columns: 1fr;
@@ -1401,15 +1401,26 @@ body {
     margin: 2.5rem 0;
   }
 
+  /* image container always on top on mobile */
   .experience-section .fullscreen-image-container,
   .room-section .fullscreen-image-container {
-    height: 55vw;
-    min-height: 260px;
+    order: -1;
+    height: auto;
+    max-height: none;
+  }
+
+  .experience-section .fullscreen-image,
+  .room-section .fullscreen-image {
+    min-height: unset;
+    height: auto;
+    width: 100%;
+    display: block;
   }
 
   .experience-section .image-text-overlay,
   .room-section .image-text-overlay {
     padding: 2.5rem 1.5rem;
+    order: 1;
   }
 
   .combined-text-title {
@@ -1418,7 +1429,7 @@ body {
 
   .combined-text { font-size: 1rem; }
 
-  /* Bonfire / outdoor breakfast → stack */
+  /* Bonfire / outdoor breakfast → stack, image always first */
   .bonfire-section,
   .outdoor-breakfast-section {
     grid-template-columns: 1fr;
@@ -1426,8 +1437,23 @@ body {
     margin: 2.5rem 0;
   }
 
-  .bonfire-image,
-  .outdoor-breakfast-image { height: 55vw; min-height: 260px; }
+  .bonfire-image { order: -1; }
+  .bonfire-content { order: 1; }
+
+  .outdoor-breakfast-image {
+    order: -1;
+    height: auto;
+    max-height: none;
+  }
+  .outdoor-breakfast-content { order: 1; }
+
+  .bonfire-img,
+  .outdoor-breakfast-img {
+    min-height: unset;
+    height: auto;
+    width: 100%;
+    display: block;
+  }
 
   .bonfire-content,
   .outdoor-breakfast-content { padding: 2.5rem 1.5rem; }
