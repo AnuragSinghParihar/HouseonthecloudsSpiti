@@ -42,26 +42,27 @@ const Contact = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        fontFamily: '"Poppins", sans-serif',
-        color: "#666",
-        background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+        fontFamily: '"Lato", sans-serif',
+        color: "#5c4a35",
+        background: "#f0ebe0",
       }}
     >
       <div
         style={{
           textAlign: "center",
           padding: "2rem",
-          background: "white",
-          borderRadius: "10px",
-          boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+          background: "#f7f3ec",
+          borderRadius: "4px",
+          boxShadow: "0 4px 20px rgba(45,31,20,0.08)",
+          border: "1px solid #d4c8b8",
         }}
       >
         <div
           style={{
             width: "40px",
             height: "40px",
-            border: "4px solid #f3f3f3",
-            borderTop: "4px solid #4a1818",
+            border: "4px solid #d4c8b8",
+            borderTop: "4px solid #c4544a",
             borderRadius: "50%",
             animation: "spin 1s linear infinite",
             margin: "0 auto 1rem",

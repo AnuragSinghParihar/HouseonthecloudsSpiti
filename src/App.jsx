@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import HotelPolicy from "./components/HotelPolicy";
+import TariffPolicy from "./components/TariffPolicy";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/hotel-policy" element={<HotelPolicy />} />
+          <Route path="/tariff" element={<TariffPolicy />} />
         </Routes>
       </div>
       <Footer />

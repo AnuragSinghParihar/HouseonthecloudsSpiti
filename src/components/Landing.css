@@ -8,8 +8,8 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  color: #333;
+  font-family: var(--ff-b);
+  color: var(--text-b);
 }
 
 /* Hero Section */
@@ -120,32 +120,32 @@ body {
 }
 
 .landing-reel-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  color: #333;
+  color: var(--text-h);
   margin-bottom: 2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
 }
 
 .landing-reel-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
   margin-bottom: 2rem;
 }
 
 .landing-reel-details {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
-  color: #999;
-  font-style: italic;
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  color: var(--text-m);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 .landing-reel-video {
@@ -315,31 +315,31 @@ body {
   align-items: center;
   justify-content: center;
   padding: 4rem;
-  background: #f8f8f8;
+  background: var(--surface);
 }
 
 .text-content {
   max-width: 600px;
-  color: #333;
+  color: var(--text-h);
 }
 
 .combined-text-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  color: #333;
+  color: var(--text-h);
   margin-bottom: 2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .combined-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
   margin-bottom: 2rem;
 }
@@ -397,14 +397,14 @@ body {
 .experiences-section {
   padding-top: 4rem;
   text-align: center;
-  background: #f8f8f8;
+  background: var(--surface);
 }
 
 .experiences-heading h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0.2rem 0;
@@ -413,8 +413,8 @@ body {
 .experiences-heading h2:last-child {
   font-weight: 600;
   font-style: italic;
-  font-size: 4rem;
-  color: #333;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--text-h);
   position: relative;
   display: inline-block;
   letter-spacing: 3px;
@@ -486,43 +486,43 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 4rem;
-  background: #f8f8f8;
+  background: var(--surface);
 }
 
 .bonfire-title,
 .outdoor-breakfast-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .bonfire-text {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--ff-b);
   font-size: 1.1rem;
-  line-height: 1.8;
-  color: #666;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
 }
 
 /* Explore Section */
 .explore-section {
   padding: 8rem 4rem;
-  background: white;
+  background: var(--bg);
 }
 
 .explore-title {
-  font-family: 'Lato', sans-serif;
-  font-size: 3rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   text-align: center;
   margin-bottom: 4rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .explore-grid {
@@ -535,7 +535,7 @@ body {
 
 .explore-card {
   position: relative;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   overflow: hidden;
   cursor: pointer;
   border-radius: 8px;
@@ -610,7 +610,7 @@ body {
 }
 
 .popup-content {
-  background: white;
+  background: var(--surface);
   max-width: 700px;
   max-height: 80vh;
   overflow-y: auto;
@@ -625,19 +625,21 @@ body {
 }
 
 .popup-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
   font-weight: 400;
   padding: 2rem 2rem 1rem;
-  color: #333;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .popup-content p {
   padding: 0 2rem 2rem;
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
 }
 
 .close-btn {
@@ -661,7 +663,7 @@ body {
 /* Contact Section */
 .hotc-section {
   padding: 8rem 0 4rem 0;
-  background: #f8f8f8;
+  background: var(--bg);
   min-height: 100vh;
   opacity: 1;
   transform: translateY(0);
@@ -677,19 +679,19 @@ body {
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  color: #333;
+  color: var(--text-h);
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .hero-subtitle {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  color: var(--text-b);
   font-weight: 300;
 }
 
@@ -704,7 +706,7 @@ body {
 }
 
 .contact-form-container {
-  background: white;
+  background: var(--surface);
   padding: 3rem;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
@@ -716,17 +718,19 @@ body {
 }
 
 .form-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
   font-weight: 400;
-  color: #333;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   margin-bottom: 0.5rem;
 }
 
 .form-header p {
-  font-family: 'Lato', sans-serif;
-  color: #666;
-  font-size: 1rem;
+  font-family: var(--ff-b);
+  color: var(--text-b);
+  font-size: 1.1rem;
 }
 
 .contact-form {
@@ -751,10 +755,12 @@ body {
 }
 
 .form-group label {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #333;
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-m);
+  letter-spacing: 4px;
+  text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 
@@ -762,10 +768,12 @@ body {
 .form-group select,
 .form-group textarea {
   padding: 0.8rem;
-  border: 2px solid #e0e0e0;
+  border: 1px solid var(--border);
   border-radius: 6px;
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  background: var(--bg);
+  color: var(--text-b);
   transition: border-color 0.3s ease;
 }
 
@@ -773,19 +781,20 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #b62222;
+  border-color: var(--terra);
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #b62222 0%, #8b0000 100%);
+  background: var(--terra);
   color: white;
   border: none;
   padding: 1rem 2rem;
   border-radius: 6px;
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-family: var(--ff-b);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -796,7 +805,7 @@ body {
 
 .submit-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(182, 34, 34, 0.3);
+  box-shadow: 0 6px 20px rgba(196, 84, 74, 0.35);
 }
 
 .submit-btn:disabled {
@@ -900,7 +909,7 @@ body {
 
 .common-area-heading p {
   font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #666;
   font-weight: 300;
 } */
@@ -1146,7 +1155,7 @@ body {
 /* ─── Guest Reviews Section ─── */
 .reviews-section {
   padding: 7rem 2rem 6rem;
-  background: #faf8f5;
+  background: var(--bg);
 }
 
 .reviews-header {
@@ -1155,27 +1164,29 @@ body {
 }
 
 .reviews-eyebrow {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.8rem;
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
   letter-spacing: 4px;
-  font-weight: 600;
-  color: #9c8a7a;
+  font-weight: 700;
+  color: var(--text-m);
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 .reviews-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
-  color: #2c2c2c;
+  color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin-bottom: 1.5rem;
 }
 
 .reviews-underline {
   width: 60px;
   height: 2px;
-  background: #9c8a7a;
+  background: var(--border);
   margin: 0 auto;
 }
 
@@ -1188,9 +1199,10 @@ body {
 }
 
 .review-card {
-  background: #fff;
+  background: var(--surface);
   padding: 2.5rem;
   border-radius: 4px;
+  border: 1px solid var(--border);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
@@ -1212,10 +1224,11 @@ body {
 }
 
 .review-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: #555;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
+  font-weight: 300;
   flex: 1;
 }
 
@@ -1229,23 +1242,24 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  border-top: 1px solid #f0ece8;
+  border-top: 1px solid var(--border);
   padding-top: 1.2rem;
 }
 
 .review-name {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--ff-h);
   font-size: 1rem;
   font-weight: 600;
-  color: #2c2c2c;
+  color: var(--text-h);
 }
 
 .review-location {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #9c8a7a;
+  font-weight: 700;
+  color: var(--text-m);
 }
 
 .reviews-cta {
@@ -1287,32 +1301,33 @@ body {
 }
 
 .reviews-rating-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #9c8a7a;
+  color: var(--text-m);
 }
 
 .reviews-google-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 4px;
   text-transform: uppercase;
-  color: #2c2c2c;
+  color: var(--text-h);
   text-decoration: none;
   padding: 1rem 2.2rem;
-  border: 1.5px solid #2c2c2c;
+  border: 1.5px solid var(--text-h);
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .reviews-google-btn:hover {
-  background: #2c2c2c;
-  color: #faf8f5;
+  background: var(--text-h);
+  color: var(--bg);
   transform: translateY(-2px);
 }
 
@@ -1331,10 +1346,6 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .reviews-title {
-    font-size: 2.2rem;
-  }
-
   .reviews-cta {
     flex-direction: column;
     gap: 2rem;
@@ -1345,10 +1356,6 @@ body {
 @media (max-width: 480px) {
   .reviews-section {
     padding: 5rem 1.5rem 4rem;
-  }
-
-  .reviews-title {
-    font-size: 1.8rem;
   }
 
   .review-card {
@@ -1374,7 +1381,7 @@ body {
 
   .before-hero { padding: 0 1.5rem; margin: 3rem auto; }
   .heading-main-two { font-size: 1.8rem; }
-  .heading-main-two i { font-size: 1.2rem; }
+  .heading-main-two i { font-size: 1.1rem; }
 
   /* Side-by-side sections → stack */
   .experience-section,
@@ -1396,7 +1403,6 @@ body {
   }
 
   .combined-text-title {
-    font-size: 1.8rem;
     white-space: normal;
   }
 
@@ -1476,7 +1482,7 @@ body {
   .popup-content { margin: 1rem; max-height: 90vh; }
   .popup-image { height: 200px; }
   .popup-content h3 { font-size: 1.5rem; padding: 1.5rem 1.5rem 0.5rem; }
-  .popup-content p { padding: 0 1.5rem 1.5rem; font-size: 0.95rem; }
+  .popup-content p { padding: 0 1.5rem 1.5rem; font-size: 1.1rem; }
 }
 
 @media (max-width: 480px) {
@@ -1489,7 +1495,7 @@ body {
   .heading-main-two i { font-size: 1rem; }
 
   .combined-text-title { font-size: 1.5rem; }
-  .combined-text { font-size: 0.95rem; }
+  .combined-text { font-size: 1.1rem; }
 
   .bonfire-title,
   .outdoor-breakfast-title { font-size: 1.5rem; }

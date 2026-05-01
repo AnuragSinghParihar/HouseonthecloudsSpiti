@@ -1,4 +1,16 @@
 :root {
+  --bg: #f0ebe0;
+  --surface: #f0ebe0;
+  --text-h: #2d1f14;
+  --text-b: #5c4a35;
+  --text-m: #8a7a6a;
+  --accent: #e8b830;
+  --teal: #4a8a7a;
+  --terra: #c4544a;
+  --border: #d4c8b8;
+  --ff-h: 'Playfair Display', serif;
+  --ff-b: 'Lato', sans-serif;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,6 +30,19 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: clip;
+  background: var(--bg);
+  color: var(--text-b);
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--text-b);
 }
 
 /* Reset default Vite link styles so site styles win */
@@ -40,6 +65,29 @@ button {
 /* Ensure images never overflow their container */
 img, video {
   max-width: 100%;
+}
+
+/* ── Square image grid items ── */
+.accom-showcase-image,
+.journey-blessed-image,
+.journey-lamas-blessing-image,
+.journey-valley-image,
+.journey-culture-image {
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.accom-showcase-container,
+.journey-blessed-section,
+.journey-lamas-blessing-section {
+  min-height: unset !important;
+  align-items: stretch;
+}
+
+/* Gallery square grid — cap item height */
+.sharp-gallery-item,
+.sharp-wildlife-image-item {
+  max-height: 320px;
 }
 
 /* ═══════════════════════════════════════

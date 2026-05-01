@@ -77,6 +77,7 @@ const Footer = () => {
       <div className="footer-bottom-info">
         <div className="footer-legal-links">
           <Link to="/hotel-policy">Hotel Policy</Link>
+          <Link to="/tariff">Tariff &amp; Cancellation</Link>
         </div>
         <div className="footer-copyright">
           ©HouseOnTheClouds 2025. All Rights Reserved

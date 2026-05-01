@@ -2,8 +2,8 @@
 
 /* Journey Page Styles */
 .journey-page {
-  font-family: 'Lato', sans-serif;
-  color: #333;
+  font-family: var(--ff-b);
+  color: var(--text-b);
   overflow-x: hidden;
 }
 
@@ -39,25 +39,25 @@
   flex-direction: column;
   justify-content: center;
   padding: 4rem 3rem;
-  background: #f8f8f8;
+  background: var(--surface);
 }
 
 .journey-blessed-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
 }
 
 .journey-blessed-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
 }
 
@@ -78,7 +78,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 4rem 3rem;
-  background: white;
+  background: var(--bg);
   order: 1;
 }
 
@@ -99,21 +99,21 @@
 }
 
 .journey-lamas-blessing-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
 }
 
 .journey-lamas-blessing-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
 }
 
@@ -149,25 +149,25 @@
   flex-direction: column;
   justify-content: center;
   padding: 4rem 3rem;
-  background: #f8f8f8;
+  background: var(--surface);
 }
 
 .journey-collaboration-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
 }
 
 .journey-collaboration-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
 }
 
@@ -188,7 +188,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 4rem 3rem;
-  background: white;
+  background: var(--bg);
   order: 1;
 }
 
@@ -209,21 +209,21 @@
 }
 
 .journey-sanctuary-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
 }
 
 .journey-sanctuary-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
@@ -264,25 +264,25 @@
   flex-direction: column;
   justify-content: center;
   padding: 4rem 3rem;
-  background: #f8f8f8;
+  background: var(--surface);
 }
 
 .journey-stories-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.8rem;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
   font-weight: 400;
   margin-bottom: 2rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   line-height: 1.2;
 }
 
 .journey-stories-text {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #666;
+  font-family: var(--ff-b);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
@@ -294,7 +294,7 @@
 /* Journey Three Image Section - MINIMALIST REDESIGN */
 .journey-three-image-section {
   padding: 4rem 4rem;
-  background: white;
+  background: var(--bg);
   max-width: 1600px;
   margin: 0 auto;
 }
@@ -307,13 +307,13 @@
 }
 
 .journey-three-heading-above {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 300;
+  font-family: var(--ff-h);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 400;
   margin-bottom: 3rem;
-  color: #333;
+  color: var(--text-h);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   line-height: 1.1;
 }
 
@@ -338,7 +338,7 @@
 }
 
 .journey-three-image-item {
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
   overflow: hidden;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 }
@@ -360,11 +360,11 @@
 }
 
 .journey-three-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-family: var(--ff-h);
+  font-size: 1.4rem;
   font-weight: 300;
   font-style: italic;
-  color: #444;
+  color: var(--text-h);
   line-height: 1.4;
   margin-bottom: 3rem;
   position: relative;
@@ -385,10 +385,10 @@
 }
 
 .journey-three-copy {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--ff-b);
   font-size: 1.1rem;
-  line-height: 1.8;
-  color: #666;
+  line-height: 1.85;
+  color: var(--text-b);
   font-weight: 300;
   margin-bottom: 1.5rem;
 }

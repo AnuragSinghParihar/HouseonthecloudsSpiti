@@ -1,3 +1,8 @@
+/* ─── Section background ─── */
+.reviews-section {
+  background: var(--bg);
+}
+
 /* ─── Elfsight widget wrapper ─── */
 .gr-widget-wrapper {
   max-width: 1400px;
