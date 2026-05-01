@@ -84,10 +84,9 @@ img, video {
   align-items: stretch;
 }
 
-/* Gallery square grid — cap item height */
-.sharp-gallery-item,
+/* Wildlife grid items — prevent excessive height */
 .sharp-wildlife-image-item {
-  max-height: 320px;
+  max-height: 360px;
 }
 
 /* ═══════════════════════════════════════

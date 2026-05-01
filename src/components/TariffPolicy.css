@@ -114,7 +114,7 @@
 .tp-divider {
   width: 44px;
   height: 2px;
-  background: linear-gradient(90deg, var(--terra), transparent);
+  background: linear-gradient(90deg, var(--teal), transparent);
   margin-bottom: 1.8rem;
   border-radius: 2px;
 }
@@ -186,7 +186,7 @@
   font-family: var(--ff-h);
   font-size: 1rem;
   font-weight: 400;
-  color: var(--terra);
+  color: var(--teal);
   min-width: 48px;
 }
 
@@ -251,9 +251,9 @@
   line-height: 1.4;
 }
 
-.tp-badge-green { background: rgba(74, 138, 122, 0.12); color: var(--teal); }
-.tp-badge-amber { background: rgba(232, 184, 48, 0.15); color: #a07800; }
-.tp-badge-red   { background: rgba(196, 84, 74, 0.12); color: var(--terra); }
+.tp-badge-green  { background: rgba(74, 138, 122, 0.12); color: var(--teal); }
+.tp-badge-amber  { background: rgba(232, 184, 48, 0.15); color: #a07800; }
+.tp-badge-red    { background: rgba(138, 122, 106, 0.15); color: var(--text-m); }
 
 .tp-cancel-text strong {
   font-family: var(--ff-h);
@@ -313,8 +313,8 @@
 }
 
 .tp-contact-link:hover {
-  color: var(--terra);
-  border-color: var(--terra);
+  color: var(--teal);
+  border-color: var(--teal);
 }
 
 .tp-sep {

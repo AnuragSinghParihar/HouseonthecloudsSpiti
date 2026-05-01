@@ -3,7 +3,7 @@
 /* ── Page wrapper ── */
 .hp-page {
   min-height: 100vh;
-  background: #faf8f5;
+  background: var(--bg);
 }
 
 /* ── Hero ── */
@@ -95,7 +95,7 @@
   text-align: center;
   margin-bottom: 4rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(139, 124, 142, 0.2);
+  border-bottom: 1px solid var(--border);
 }
 
 /* ── Section ── */
@@ -105,11 +105,12 @@
 
 .hp-section-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
   font-weight: 400;
-  color: #3a2f3a;
+  color: var(--text-h);
   margin: 0 0 0.6rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hp-section-divider {
@@ -124,7 +125,7 @@
 .hp-item {
   margin-bottom: 1.4rem;
   padding-left: 1rem;
-  border-left: 3px solid rgba(139, 124, 142, 0.25);
+  border-left: 3px solid var(--border);
 }
 
 .hp-item-heading {
@@ -142,7 +143,7 @@
   font-size: 0.97rem;
   font-weight: 300;
   line-height: 1.75;
-  color: #555;
+  color: var(--text-b);
   margin: 0;
 }
 
@@ -158,7 +159,7 @@
   font-size: 0.97rem;
   font-weight: 300;
   line-height: 1.75;
-  color: #555;
+  color: var(--text-b);
   padding: 0.7rem 0 0.7rem 1.4rem;
   border-bottom: 1px solid rgba(139, 124, 142, 0.1);
   position: relative;
@@ -200,7 +201,7 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(139, 124, 142, 0.7);
+  color: var(--text-m);
   margin: 0 0 0.8rem;
 }
 
@@ -208,7 +209,7 @@
   font-family: 'Lato', sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
-  color: #3a2f3a;
+  color: var(--text-h);
   text-decoration: none;
   border-bottom: 1px solid rgba(139, 124, 142, 0.4);
   transition: color 0.2s, border-color 0.2s;
